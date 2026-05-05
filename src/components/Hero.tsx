@@ -1,69 +1,75 @@
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
-import heroImg from "../assets/home/hero-img.png";
+import { Download, ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="bg-[#f2f2f2] h-content md:h-[90vh]">
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center text-center md:text-start">
-          {/* Left content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="space-y-6"
-          >
-            {/* Header */}
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight pt-4">
-              <span className="text-[#d41a0b]">Secure</span> your money and your
-              future.
-            </h1>
+    <section className="relative w-full h-[90vh] overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/invesnaija-hero.mp4" type="video/mp4" />
+      </video>
 
-            {/* Paragraph */}
-            <p className="text-gray-600 text-sm md:text-lg max-w-xl">
-              InvestNaija is designed to assist you achieve financial freedom.
-            </p>
+      {/* Dark overlay (improves text readability) */}
+      <div className="absolute inset-0 bg-black/40" />
 
-            {/* Buttons */}
-            <div className="flex items-center gap-4 pt-4 justify-center">
-              {/* Download button */}
-              <motion.button
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
-                className="cursor-pointer flex items-center text-sm md:text-md  gap-2 px-6 py-3 rounded-lg text-white font-semibold
-                  bg-gradient-to-r from-[#e01e03] to-[#fbd90a]
-                  hover:opacity-90 transition-all duration-300 shadow-md"
-              >
-                <Download size={18} />
-                Download
-              </motion.button>
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-4 max-w-2xl"
+        >
+          {/* Header */}
+          <h1 className="text-3xl md:text-6xl font-bold text-white leading-tight">
+            <span className="text-[#fbd90a]">Secure</span> your money and your
+            future.
+          </h1>
 
-              {/* Learn more button  */}
-              <motion.button
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
-                className="cursor-pointer text-sm md:text-md gap-2 px-6 py-3 rounded-lg bg-white text-gray-800 font-semibold hover:bg-gray-100 transition-all duration-300 border border-gray-300"
-              >
-                Learn More
-              </motion.button>
-            </div>
-          </motion.div>
+          {/* Paragraph */}
+          <p className="text-gray-200 text-sm md:text-lg">
+            InvestNaija is designed to assist you achieve financial freedom.
+          </p>
 
-          {/* Right image */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="flex justify-center"
-          >
-            <img
-              src={heroImg}
-              alt="InvestNaija Hero"
-              className="w-full max-w-md md:max-w-lg"
-            />
-          </motion.div>
-        </div>
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 justify-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold
+              bg-gradient-to-r from-[#e01e03] to-[#fbd90a]
+              hover:opacity-90 transition-all duration-300 shadow-md"
+            >
+              <Download size={18} />
+              Download
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="px-6 py-3 rounded-lg bg-white text-gray-800 font-semibold
+              hover:bg-gray-100 transition-all duration-300 border border-gray-300"
+            >
+              Learn More
+            </motion.button>
+          </div>
+        </motion.div>
+
+        {/* Scroll Down Arrow */}
+        <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.2 }}
+          className="mt-6 text-white"
+        >
+          <ChevronDown size={32} />
+        </motion.div>
       </div>
     </section>
   );
