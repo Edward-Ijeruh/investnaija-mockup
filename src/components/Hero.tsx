@@ -12,7 +12,7 @@ export default function Hero() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/invesnaija-hero.mp4" type="video/mp4" />
+        <source src="/investnaija-hero.mp4" type="video/mp4" />
       </video>
 
       {/* Dark overlay (improves text readability) */}
@@ -31,11 +31,6 @@ export default function Hero() {
             <span className="text-[#fbd90a]">Secure</span> your money and your
             future.
           </h1>
-
-          {/* Paragraph */}
-          <p className="text-gray-200 text-sm md:text-lg">
-            InvestNaija is designed to assist you achieve financial freedom.
-          </p>
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 justify-center">
