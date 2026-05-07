@@ -1,7 +1,4 @@
 import { motion } from "framer-motion";
-import aisha from "../assets/home/aisha.jpg";
-import tunde from "../assets/home/tunde.jpg";
-import chioma from "../assets/home/chioma.jpg";
 
 const testimonials = [
   {
@@ -9,105 +6,165 @@ const testimonials = [
       "InvestNaija completely changed how I approach my finances. Everything feels simple, intentional, and trustworthy.",
     name: "Aisha Bello",
     title: "Product Manager",
-    image: aisha,
+    accent: "#0b6e7a",
   },
   {
     quote:
       "From learning to investing, the experience feels seamless. It’s rare to find a platform this well thought out.",
     name: "Tunde Adeyemi",
     title: "Software Engineer",
-    image: tunde,
+    accent: "#e25257",
   },
   {
     quote:
       "I finally feel confident making financial decisions. InvestNaija removes the fear and replaces it with clarity.",
     name: "Chioma Okeke",
     title: "Small Business Owner",
-    image: chioma,
+    accent: "#fbc710",
+  },
+  {
+    quote:
+      "The platform feels calm and easy to navigate. I spend less time confused and more time actually planning my future.",
+    name: "Ifeanyi Nwosu",
+    title: "Operations Lead",
+    accent: "#d91b08",
+  },
+  {
+    quote:
+      "What stood out immediately was the clarity. Every step feels thoughtfully designed, especially for first-time investors.",
+    name: "Zainab Suleiman",
+    title: "Marketing Consultant",
+    accent: "#0b6e7a",
   },
 ];
 
+/* seamless loop */
+const loopTestimonials = [...testimonials, ...testimonials];
+
 export default function Testimonials() {
   return (
-    <section className="relative py-28 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
-      {/* Ambient background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#fde68a,transparent_45%)] opacity-25" />
+    <section className="relative py-24 md:py-32 overflow-hidden bg-white">
+      {/* subtle grid */}
+      <div
+        className="absolute inset-0 opacity-[0.025]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, black 1px, transparent 1px), linear-gradient(to bottom, black 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
 
-      <div className="relative max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-24"
-        >
-          <span className="inline-block mb-4 text-sm font-semibold tracking-wide uppercase text-[#d41a0b]">
+      <div className="relative">
+        {/* HEADER */}
+        <div className="max-w-3xl mx-auto text-center px-6 mb-16 md:mb-20">
+          <motion.span
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="text-sm text-gray-500 uppercase tracking-widest mb-4"
+          >
             Testimonials
-          </span>
+          </motion.span>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-            Trusted by people building <br />
-            their <span className="text-[#d41a0b]"> financial future</span>
-          </h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="mt-6 text-3xl md:text-5xl font-semibold leading-tight tracking-tight text-[#050505]"
+          >
+            <span className="bg-gradient-to-r from-[#e01e03] to-[#fbd90a] bg-clip-text text-transparent">
+              Financial clarity,{" "}
+            </span>
+            <br />
+            built around real people.
+          </motion.h2>
 
-          <p className="mt-6 text-lg text-gray-600">
-            Real stories from individuals who are learning, saving, planning,
-            and investing smarter with InvestNaija.
-          </p>
-        </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="mt-5 text-sm md:text-base leading-relaxed text-black/55 max-w-2xl mx-auto"
+          >
+            Designed to simplify decision making, reduce overwhelm, and help
+            Nigerians build wealth with more confidence and less friction.
+          </motion.p>
+        </div>
 
-        {/* Testimonials */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
-          variants={{
-            visible: { transition: { staggerChildren: 0.25 } },
-          }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-14"
-        >
-          {testimonials.map((item, index) => (
-            <motion.div
-              key={index}
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.6, ease: "easeOut" },
-                },
-              }}
-              className="flex flex-col items-center text-center"
-            >
-              {/* Quote mark */}
-              <span className="text-5xl leading-none text-[#d41a0b]/80 mb-4">
-                “
-              </span>
+        {/* LEFT FADE */}
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 md:w-40 bg-gradient-to-r from-white to-transparent" />
 
-              {/* Quote */}
-              <p className="text-lg text-gray-700 leading-relaxed max-w-sm mb-10">
-                {item.quote}
-              </p>
+        {/* RIGHT FADE */}
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 md:w-40 bg-gradient-to-l from-white to-transparent" />
 
-              {/* Profile */}
-              <motion.img
-                src={item.image}
-                alt={item.name}
-                initial={{ scale: 0.9, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.4 }}
-                className="w-14 h-14 rounded-full object-cover mb-4 shadow-md"
-              />
+        {/* INFINITE SCROLLER */}
+        <div className="overflow-hidden">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              repeat: Infinity,
+              duration: 30,
+              ease: "linear",
+            }}
+            className="flex gap-5 md:gap-6 w-max px-6"
+          >
+            {loopTestimonials.map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{
+                  y: -6,
+                  transition: { duration: 0.25 },
+                }}
+                className="group relative w-[320px] md:w-[420px] shrink-0 rounded-[28px] overflow-hidden border border-black/8 bg-white backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.04)]"
+              >
+                {/* hover glow */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
+                  style={{
+                    background: `radial-gradient(circle at top left, ${item.accent}12, transparent 45%)`,
+                  }}
+                />
 
-              <h4 className="text-base font-semibold text-gray-900">
-                {item.name}
-              </h4>
-              <span className="text-sm text-gray-500">{item.title}</span>
-            </motion.div>
-          ))}
-        </motion.div>
+                {/* content */}
+                <div className="relative p-6 md:p-8 flex flex-col justify-between h-full min-h-[260px]">
+                  <div>
+                    {/* quote icon */}
+                    <div
+                      className="text-5xl leading-none mb-6"
+                      style={{ color: item.accent }}
+                    >
+                      “
+                    </div>
+
+                    {/* quote */}
+                    <p className="text-sm md:text-base leading-relaxed text-black/75">
+                      {item.quote}
+                    </p>
+                  </div>
+
+                  {/* footer */}
+                  <div className="mt-10">
+                    <h4 className="text-sm md:text-base font-semibold text-[#050505]">
+                      {item.name}
+                    </h4>
+
+                    <p className="text-xs md:text-sm text-black/45 mt-1">
+                      {item.title}
+                    </p>
+                  </div>
+                </div>
+
+                {/* accent line */}
+                <div
+                  className="absolute bottom-0 left-0 h-[2px] w-full"
+                  style={{ backgroundColor: item.accent }}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

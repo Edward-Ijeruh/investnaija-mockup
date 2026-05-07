@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   GraduationCap,
@@ -8,161 +9,216 @@ import {
 } from "lucide-react";
 
 import learnIn from "../assets/home/learn-in.jpg";
-import saveIn from "../assets/home/save-in.jpg";
 import planIn from "../assets/home/plan-in.jpg";
+import saveIn from "../assets/home/save-in.jpg";
 import investIn from "../assets/home/invest-in.jpg";
 
 const steps = [
   {
     title: "LearnIN",
-    heading: "Start your journey to financial independence.",
-    description:
-      "Our mission is to help all Nigerians on the journey to financial freedom, so we’ve put decades of lessons in to a simple app for your convenience.",
-    image: learnIn,
+    heading: "Understand your money clearly.",
+    description: "Structured financial education without complexity.",
     icon: GraduationCap,
-    overlay: "bg-purple-700/60",
+    color: "#0b6e7a",
+    image: learnIn,
   },
   {
     title: "SaveIN",
-    heading: "Let your money work extra hard for you.",
-    description:
-      "Sign up in minutes, set your money goals, and we’ll help you save automatically and reach them with zero hidden charges.",
-    image: saveIn,
+    heading: "Build disciplined habits.",
+    description: "Automate savings effortlessly.",
     icon: PiggyBank,
-    overlay: "bg-emerald-700/60",
+    color: "#e25257",
+    image: saveIn,
   },
   {
     title: "PlanIN",
-    heading: "Start planning for your tomorrow today.",
-    description:
-      "Put your money in long-term investments to meet your major life goals and earn attractive returns.",
-    image: planIn,
+    heading: "Plan for your future.",
+    description: "Align money decisions with long-term goals.",
     icon: Layers3,
-    overlay: "bg-amber-600/60",
+    color: "#d91b08",
+    image: planIn,
   },
   {
     title: "InvestIN",
-    heading: "Investing made simple, secure and accessible.",
-    description:
-      "Get access to carefully selected SEC-regulated investment options and prepare for the future you deserve.",
-    image: investIn,
+    heading: "Invest with confidence.",
+    description: "Curated, regulated opportunities.",
     icon: TrendingUp,
-    overlay: "bg-red-700/60",
+    color: "#fbc710",
+    image: investIn,
   },
 ];
 
 export default function Steps() {
+  const [active, setActive] = useState(0);
+
   return (
-    <section className="relative py-28 overflow-hidden bg-gradient-to-b from-white to-gray-50">
-      {/* Ambient background glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#fde68a,transparent_45%)] opacity-25" />
-
-      <div className="relative max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mb-20"
-        >
-          <span className="inline-block mb-3 text-sm font-semibold tracking-wide uppercase text-[#d41a0b]">
-            How It Works
-          </span>
-
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-            A <span className="text-[#d41a0b]">smarter</span> way to manage{" "}
-            <br /> your finances
-          </h2>
-
-          <p className="mt-5 text-lg text-gray-600">
-            Everything you need to learn, save, plan, and invest thoughtfully
-            designed in one seamless experience.
+    <section className="bg-black py-28 text-white">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* HEADER */}
+        <div className="max-w-2xl mb-16">
+          <p className="text-xs tracking-widest uppercase text-white/40">
+            Process
           </p>
-        </motion.div>
+          <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
+            A structured approach to building{" "}
+            <span style={{ color: steps[active].color }}>wealth</span>
+          </h2>
+        </div>
 
-        {/* Cards */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
-          variants={{
-            visible: {
-              transition: { staggerChildren: 0.18 },
-            },
-          }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10"
-        >
-          {steps.map((step, index) => {
+        {/* DESKTOP */}
+        <div className="hidden md:flex gap-4 h-[480px]">
+          {steps.map((step, i) => {
             const Icon = step.icon;
+            const isActive = active === i;
 
             return (
               <motion.div
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, y: 50 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { duration: 0.6, ease: "easeOut" },
-                  },
-                }}
-                whileHover={{ y: -6 }}
-                className="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300"
+                key={i}
+                onMouseEnter={() => setActive(i)}
+                animate={{ flex: isActive ? 4 : 1 }}
+                transition={{ duration: 0.5 }}
+                className="relative rounded-2xl overflow-hidden cursor-pointer"
               >
-                {/* Image */}
-                <div className="relative h-60 overflow-hidden">
-                  <img
-                    src={step.image}
-                    alt={step.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                {/* IMAGE */}
+                <img
+                  src={step.image}
+                  alt=""
+                  className={`absolute inset-0 w-full h-full object-cover transition duration-700 ${
+                    isActive ? "scale-105" : "scale-100"
+                  }`}
+                />
 
-                  {/* Colored gradient overlay */}
-                  <div className={`absolute inset-0 ${step.overlay}`} />
+                {/* COLOR TINT */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: `linear-gradient(180deg, transparent 20%, ${step.color}cc 100%)`,
+                  }}
+                />
 
-                  {/* Icon */}
-                  <div className="absolute top-5 left-5 w-12 h-12 rounded-xl bg-white/90 flex items-center justify-center shadow">
-                    <Icon size={22} className="text-[#d41a0b]" />
+                {/* DARK OVERLAY */}
+                <div className="absolute inset-0 bg-black/40" />
+
+                {/* CONTENT */}
+                <div className="relative h-full p-6 flex flex-col justify-between">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md bg-black/30 border border-white/10 w-fit">
+                    <Icon size={20} style={{ color: step.color }} />
+                    <span className="text-md tracking-wide text-white/90">
+                      {step.title}
+                    </span>
                   </div>
 
-                  {/* Title */}
-                  <h4 className="absolute bottom-5 left-5 text-xl font-semibold text-white">
-                    {step.title}
-                  </h4>
-                </div>
-
-                {/* Content */}
-                <div className="p-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {step.heading}
-                  </h3>
-
-                  <p className="text-gray-600 leading-relaxed mb-8">
-                    {step.description}
-                  </p>
-
-                  {/* CTA */}
-                  <motion.button
-                    whileHover="hover"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#d41a0b] cursor-pointer"
-                  >
-                    <span>Get started</span>
-                    <motion.span
-                      variants={{ hover: { x: 6 } }}
-                      transition={{ duration: 0.3 }}
+                  <div>
+                    <motion.div
+                      animate={{ opacity: isActive ? 1 : 0.6 }}
+                      className="space-y-3"
                     >
-                      <ArrowRight size={16} />
-                    </motion.span>
-                  </motion.button>
+                      <h3 className="text-xl font-semibold">{step.heading}</h3>
+
+                      {isActive && (
+                        <>
+                          <p className="text-white/80 text-sm max-w-xs">
+                            {step.description}
+                          </p>
+
+                          <div className="flex items-center gap-2 text-sm">
+                            Explore <ArrowRight size={14} />
+                          </div>
+                        </>
+                      )}
+                    </motion.div>
+                  </div>
                 </div>
 
-                {/* Bottom accent */}
-                <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-[#e01e03] to-[#fbd90a]" />
+                {/* ACTIVE INDICATOR */}
+                <motion.div
+                  layoutId="activeLine"
+                  className="absolute bottom-0 left-0 h-[3px] w-full"
+                  style={{ backgroundColor: step.color }}
+                  animate={{ opacity: isActive ? 1 : 0 }}
+                />
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
+
+        {/* MOBILE — SAME DESIGN, SCROLLABLE */}
+        <div className="md:hidden flex flex-col gap-3 h-[700px]">
+          {steps.map((step, i) => {
+            const Icon = step.icon;
+            const isActive = active === i;
+
+            return (
+              <motion.div
+                key={i}
+                onClick={() => setActive(i)}
+                animate={{ flex: isActive ? 4 : 1.5 }}
+                transition={{ duration: 0.5 }}
+                className="relative rounded-2xl overflow-hidden cursor-pointer"
+              >
+                {/* IMAGE */}
+                <img
+                  src={step.image}
+                  alt=""
+                  className={`absolute inset-0 w-full h-full object-cover transition duration-700 ${
+                    isActive ? "scale-105" : "scale-100"
+                  }`}
+                />
+
+                {/* TINT */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: `linear-gradient(180deg, transparent 20%, ${step.color}cc 100%)`,
+                  }}
+                />
+
+                {/* DARK */}
+                <div className="absolute inset-0 bg-black/40" />
+
+                {/* CONTENT */}
+                <div className="relative h-full p-4 flex flex-col justify-between">
+                  {/* pill */}
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full backdrop-blur-md bg-black/30 border border-white/10 w-fit">
+                    <Icon size={18} style={{ color: step.color }} />
+                    <span className="text-sm text-white/90">{step.title}</span>
+                  </div>
+
+                  {/* bottom */}
+                  <div>
+                    <motion.div
+                      animate={{ opacity: isActive ? 1 : 0.6 }}
+                      className="space-y-2"
+                    >
+                      <h3 className="text-base font-semibold">
+                        {step.heading}
+                      </h3>
+
+                      {isActive && (
+                        <>
+                          <p className="text-white/80 text-xs">
+                            {step.description}
+                          </p>
+
+                          <div className="flex items-center gap-2 text-xs mt-2">
+                            Explore <ArrowRight size={12} />
+                          </div>
+                        </>
+                      )}
+                    </motion.div>
+                  </div>
+                </div>
+
+                {/* ACTIVE LINE */}
+                <motion.div
+                  className="absolute bottom-0 left-0 h-[2px] w-full"
+                  style={{ backgroundColor: step.color }}
+                  animate={{ opacity: isActive ? 1 : 0 }}
+                />
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

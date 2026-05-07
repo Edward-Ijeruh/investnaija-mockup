@@ -1,130 +1,146 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { HelpCircle, Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
     question: "How does InvestNaija work?",
-    answer: (
-      <ul className="list-disc pl-5 space-y-2">
-        <li>
-          <strong>Tell us a little about you:</strong> Share how much you want
-          to invest, why you're investing, and your timeline so we can guide
-          you.
-        </li>
-        <li>
-          <strong>Set up your account in minutes:</strong> Pick an investing
-          goal, create a plan, and make your first deposit.
-        </li>
-        <li>
-          <strong>We handle the hard stuff:</strong> Portfolio management, stock
-          trading, and long-term financial guidance are all managed for you.
-        </li>
-      </ul>
-    ),
+    answer:
+      "InvestNaija helps you learn, save, plan, and invest through structured financial pathways designed for long-term wealth building.",
   },
   {
     question: "Is my money safe with InvestNaija?",
     answer:
-      "Absolutely. We use bank-level security measures, encryption, and trusted custodians to protect your funds and personal data.",
+      "Yes. Funds are secured using regulated custodians, encrypted systems, and industry-standard financial safeguards.",
   },
   {
     question: "How do I deposit and withdraw funds?",
     answer:
-      "Deposits are instant via local bank transfers or cards. Withdrawals are processed quickly, typically within 1-2 business days.",
+      "You can fund your account via bank transfer or card. Withdrawals are processed securely within 1–2 business days.",
   },
   {
     question: "Are there fees?",
     answer:
-      "We keep fees transparent and affordable. Most investment products have low management fees, and there are no hidden charges.",
+      "Fees are transparent and minimal, designed to align with long-term investing rather than frequent trading activity.",
   },
   {
     question: "Can I change my investment plan?",
     answer:
-      "Yes! You can update your goals, contributions, or risk preferences at any time through your InvestNaija account.",
+      "Yes. You can adjust goals, risk profile, and contributions at any time from your dashboard.",
   },
   {
     question: "Where can I get help?",
     answer:
-      "Our support team is always ready to assist via chat, email, or phone. We also provide guides and resources to help you invest confidently.",
+      "Support is available via in-app chat and email, with guided resources for every stage of your financial journey.",
   },
 ];
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-28 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
-      {/* Ambient background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#fde68a,transparent_45%)] opacity-20" />
+    <section className="relative pt-28 pb-28 bg-black text-white overflow-hidden">
+      {/* ambient background */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#0b6e7a]/20 blur-[120px]" />
+        <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-[#fbc710]/10 blur-[140px]" />
+      </div>
 
-      <div className="relative max-w-4xl mx-auto px-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="inline-block mb-3 text-sm font-semibold uppercase tracking-wide text-[#d41a0b]">
-            FAQ
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Frequently Asked <span className="text-[#d41a0b]">Questions </span>
-          </h2>
-          <p className="mt-4 text-gray-600 text-lg leading-relaxed">
-            Get answers to common questions about InvestNaija and how to start
-            building your financial future.
-          </p>
-        </motion.div>
+      <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-24 items-start">
+        {/* LEFT SIDE (improved hierarchy) */}
+        <div className="md:sticky md:top-14 space-y-10 pr-6">
+          {/* label */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs tracking-[0.2em] uppercase text-white/60">
+            <HelpCircle size={14} />
+            Knowledge Base
+          </div>
 
-        {/* Accordion */}
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-shadow duration-300"
-            >
-              <button
-                onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center px-6 py-4 text-left focus:outline-none cursor-pointer"
+          {/* headline */}
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
+              Clear answers for
+              <br />
+              <span className="text-[#0b6e7a]">confident decisions</span>
+            </h2>
+
+            <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-md">
+              Structured explanations designed to remove uncertainty and help
+              you make informed financial decisions with clarity.
+            </p>
+          </div>
+
+          {/* structured key points (clean system-like UI) */}
+          <div className="space-y-4 border-l border-white/10 pl-5">
+            {[
+              "Transparent investment structure",
+              "Regulated custody & compliance systems",
+              "Built for disciplined long-term growth",
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-2 text-sm text-white/50"
               >
-                <span className="text-lg font-semibold text-gray-900">
-                  {faq.question}
-                </span>
-                <motion.span
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <ChevronDown size={20} className="text-[#d41a0b]" />
-                </motion.span>
-              </button>
+                <span className="w-1.5 h-1.5 mt-2 rounded-full bg-[#0b6e7a]" />
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
 
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    key="content"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="px-6 pb-6 text-gray-700 text-base leading-relaxed"
+        {/* RIGHT SIDE (accordion system UI) */}
+        <div className="space-y-1">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+
+            return (
+              <div key={index} className="border-b border-white/10">
+                {/* QUESTION */}
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full flex items-center justify-between py-6 text-left group"
+                >
+                  <span
+                    className={`text-sm md:text-base transition-colors leading-relaxed ${
+                      isOpen
+                        ? "text-[#0b6e7a]"
+                        : "text-white/80 group-hover:text-white"
+                    }`}
                   >
-                    {faq.answer}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                    {faq.question}
+                  </span>
+
+                  {/* PLUS / MINUS toggle */}
+                  <div className="ml-6 flex items-center justify-center w-8 h-8 rounded-md border border-white/10 bg-white/[0.02]">
+                    <motion.div
+                      initial={false}
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-[#0b6e7a]"
+                    >
+                      {isOpen ? <Minus size={16} /> : <Plus size={16} />}
+                    </motion.div>
+                  </div>
+                </button>
+
+                {/* ANSWER */}
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-6 pr-6 text-sm md:text-base text-white/60 leading-relaxed">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
