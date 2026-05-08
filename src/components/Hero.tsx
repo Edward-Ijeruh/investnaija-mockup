@@ -1,5 +1,9 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Download, ChevronDown } from "lucide-react";
+
+import heroOne from "../assets/home/hero-1.jpg";
+import heroTwo from "../assets/home/hero-2.png";
 
 // Reusable Animated Text
 const AnimatedText = ({
@@ -50,28 +54,49 @@ const AnimatedText = ({
   );
 };
 
-export default function Hero() {
-  return (
-    <section className="relative w-full min-h-[100svh] overflow-hidden">
-      {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/investnaija-hero.mp4" type="video/mp4" />
-      </video>
+const heroImages = [heroOne, heroTwo];
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+export default function Hero() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  // clean slow image transition
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="relative w-full min-h-[100svh] overflow-hidden bg-black">
+      {/* Background Images */}
+      <AnimatePresence>
+        <motion.img
+          key={currentImage}
+          src={heroImages[currentImage]}
+          alt=""
+          initial={{ opacity: 0, scale: 1.04 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 1.02 }}
+          transition={{
+            duration: 1.8,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </AnimatePresence>
+
+      {/* Premium overlays */}
+      <div className="absolute inset-0 bg-black/35" />
+
+      {/* subtle depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_45%)]" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[100svh] text-center px-4 sm:px-6">
         <div className="space-y-5 sm:space-y-6 max-w-xl sm:max-w-2xl">
-          {/* Paragrapgh */}
+          {/* Paragraph */}
           <AnimatedText
             text="A disciplined, transparent approach to investing, designed for Nigerians"
             className="hidden sm:block mt-20 text-gray-300 text-sm sm:text-base leading-relaxed"
@@ -88,12 +113,14 @@ export default function Hero() {
           </h1>
 
           {/* Stats */}
-          <div className="flex flex-wrap items-center justify-center gap-x-2 md:gap-x-4 gap-y-2 text-gray-400 text-xs sm:text-sm pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-x-2 md:gap-x-4 gap-y-2 text-gray-300/80 text-xs sm:text-sm pt-2">
             <AnimatedText text="₦250B+ managed" delay={2.8} stagger={0.02} />
-            <span className=" sm:inline opacity-40">•</span>
+
+            <span className="opacity-30">•</span>
 
             <AnimatedText text="240,000+ users" delay={3.0} stagger={0.02} />
-            <span className=" sm:inline opacity-40">•</span>
+
+            <span className="opacity-30">•</span>
 
             <AnimatedText
               text="Secure & regulated"
@@ -112,7 +139,9 @@ export default function Hero() {
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg text-white text-sm sm:text-base font-medium bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300 cursor-pointer"
+              className="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl text-white text-sm sm:text-base font-medium
+              bg-white/10 backdrop-blur-xl border border-white/15
+              hover:bg-white/15 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.25)] cursor-pointer"
             >
               <Download size={18} />
               Get Started

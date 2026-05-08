@@ -6,6 +6,7 @@ import {
   Layers3,
   TrendingUp,
   ArrowRight,
+  Workflow,
 } from "lucide-react";
 
 import learnIn from "../assets/home/learn-in.jpg";
@@ -56,9 +57,10 @@ export default function Steps() {
       <div className="max-w-7xl mx-auto px-6">
         {/* HEADER */}
         <div className="max-w-2xl mb-16">
-          <p className="text-xs tracking-widest uppercase text-white/40">
+          <div className="inline-flex mb-10 items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs tracking-[0.2em] uppercase text-white/60">
+            <Workflow size={14} />
             Process
-          </p>
+          </div>
           <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
             A structured approach to building{" "}
             <span style={{ color: steps[active].color }}>wealth</span>
