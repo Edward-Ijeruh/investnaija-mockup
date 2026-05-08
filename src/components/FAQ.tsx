@@ -39,38 +39,32 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative pt-28 pb-28 bg-black text-white overflow-hidden">
-      {/* ambient background */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#0b6e7a]/20 blur-[120px]" />
-        <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-[#fbc710]/10 blur-[140px]" />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-24 items-start">
-        {/* LEFT SIDE (improved hierarchy) */}
+    <section className="relative pt-28 pb-28 bg-white overflow-hidden">
+      <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-start">
+        {/* LEFT SIDE */}
         <div className="md:sticky md:top-14 space-y-10 pr-6">
           {/* label */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs tracking-[0.2em] uppercase text-white/60">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/[0.03] border border-black/10 text-xs tracking-[0.2em] uppercase text-black/55">
             <HelpCircle size={14} />
             Knowledge Base
           </div>
 
           {/* headline */}
           <div className="space-y-4">
-            <h2 className="text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-semibold leading-tight tracking-tight text-[#050505]">
               Clear answers for
               <br />
               <span className="text-[#0b6e7a]">confident decisions</span>
             </h2>
 
-            <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-md">
+            <p className="text-black/55 text-sm md:text-base leading-relaxed max-w-md">
               Structured explanations designed to remove uncertainty and help
               you make informed financial decisions with clarity.
             </p>
           </div>
 
-          {/* structured key points (clean system-like UI) */}
-          <div className="space-y-4 border-l border-white/10 pl-5">
+          {/* structured key points */}
+          <div className="space-y-4 border-l border-black/10 pl-5">
             {[
               "Transparent investment structure",
               "Regulated custody & compliance systems",
@@ -78,7 +72,7 @@ export default function FAQSection() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex items-start gap-2 text-sm text-white/50"
+                className="flex items-start gap-2 text-sm text-black/50"
               >
                 <span className="w-1.5 h-1.5 mt-2 rounded-full bg-[#0b6e7a]" />
                 {item}
@@ -87,30 +81,30 @@ export default function FAQSection() {
           </div>
         </div>
 
-        {/* RIGHT SIDE (accordion system UI) */}
+        {/* RIGHT SIDE */}
         <div className="space-y-1">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
-              <div key={index} className="border-b border-white/10">
+              <div key={index} className="border-b border-black/10">
                 {/* QUESTION */}
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full flex items-center justify-between py-6 text-left group"
+                  className="w-full flex items-center justify-between py-6 text-left group cursor-pointer"
                 >
                   <span
                     className={`text-sm md:text-base transition-colors leading-relaxed ${
                       isOpen
                         ? "text-[#0b6e7a]"
-                        : "text-white/80 group-hover:text-white"
+                        : "text-black/75 group-hover:text-black"
                     }`}
                   >
                     {faq.question}
                   </span>
 
-                  {/* PLUS / MINUS toggle */}
-                  <div className="ml-6 flex items-center justify-center w-8 h-8 rounded-md border border-white/10 bg-white/[0.02]">
+                  {/* PLUS / MINUS */}
+                  <div className="ml-6 flex items-center justify-center w-8 h-8 rounded-md border border-black/10 bg-black/[0.02]">
                     <motion.div
                       initial={false}
                       animate={{ rotate: isOpen ? 180 : 0 }}
@@ -129,10 +123,13 @@ export default function FAQSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeInOut",
+                      }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-6 pr-6 text-sm md:text-base text-white/60 leading-relaxed">
+                      <div className="pb-6 pr-6 text-sm md:text-base text-black/55 leading-relaxed">
                         {faq.answer}
                       </div>
                     </motion.div>

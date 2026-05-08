@@ -15,8 +15,9 @@ export default function App() {
       <PoweredBySection />
       <Steps />
       <Testimonials />
-      <FAQSection />
       <GetStarted />
+      <FAQSection />
+
       <Footer />
     </>
   );

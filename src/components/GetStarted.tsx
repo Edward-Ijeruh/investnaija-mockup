@@ -7,6 +7,7 @@ import InvestNaijaVideo from "../assets/home/InvestNaija-Video.mp4";
 import videoTwo from "../assets/home/video2.png";
 import videoThree from "../assets/home/video3.png";
 import videoFour from "../assets/home/video4.png";
+import videoFive from "../assets/home/video5.png";
 
 const initialVideos = [
   {
@@ -42,6 +43,14 @@ const initialVideos = [
     thumbnail: videoFour,
     duration: "5:11",
   },
+  {
+    id: 5,
+    title: "Mastering consistent investing habits",
+    subtitle: "GrowIN",
+    type: "image",
+    thumbnail: videoFive,
+    duration: "6:02",
+  },
 ];
 
 export default function GetStarted() {
@@ -51,8 +60,15 @@ export default function GetStarted() {
   const sideVideos = videos.slice(1);
 
   return (
-    <section className="py-24 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <section className="relative py-24 md:py-32 bg-black overflow-hidden">
+      {/* ambient glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-180px] left-[-120px] w-[420px] h-[420px] bg-[#d91b08]/10 blur-[140px]" />
+
+        <div className="absolute bottom-[-200px] right-[-120px] w-[420px] h-[420px] bg-[#0b6e7a]/10 blur-[140px]" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 md:px-6">
         {/* TOP CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -62,7 +78,7 @@ export default function GetStarted() {
           className="max-w-3xl mx-auto text-center px-2 md:px-6 mb-16 md:mb-20"
         >
           {/* eyebrow */}
-          <motion.span
+          <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -70,7 +86,7 @@ export default function GetStarted() {
             className="text-[11px] md:text-sm text-gray-500 uppercase tracking-[0.24em]"
           >
             Video Library
-          </motion.span>
+          </motion.div>
 
           {/* heading */}
           <motion.h2
@@ -78,7 +94,7 @@ export default function GetStarted() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="mt-6 text-3xl md:text-5xl font-semibold leading-[1.05] tracking-tight text-[#050505]"
+            className="mt-7 text-3xl md:text-5xl font-semibold leading-[1.02] tracking-tight text-white"
           >
             Learn investing through
             <br />
@@ -93,7 +109,7 @@ export default function GetStarted() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="mt-5 text-sm md:text-base leading-relaxed text-black/55 max-w-2xl mx-auto"
+            className="mt-5 text-sm md:text-base leading-relaxed text-white/50 max-w-2xl mx-auto"
           >
             Short, practical financial content designed to simplify complex
             decisions, reduce cognitive overload, and help Nigerians build
@@ -110,7 +126,7 @@ export default function GetStarted() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="group overflow-hidden rounded-[32px] border border-gray-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.06)]"
+            className="group overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]"
           >
             {/* VIDEO AREA */}
             <div className="relative aspect-video overflow-hidden bg-black">
@@ -134,11 +150,11 @@ export default function GetStarted() {
               )}
 
               {/* cinematic overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
               {/* top meta */}
               <div className="absolute top-5 left-5 flex items-center gap-2">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/45 backdrop-blur-xl border border-white/10">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
                   <Volume2 size={13} className="text-white/70" />
 
                   <span className="text-[10px] uppercase tracking-[0.18em] text-white/75">
@@ -162,15 +178,15 @@ export default function GetStarted() {
             <div className="p-6 md:p-7">
               <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
                 <div className="max-w-xl">
-                  <p className="text-[11px] tracking-[0.2em] uppercase text-[#d91b08] font-semibold">
+                  <p className="text-[11px] tracking-[0.2em] uppercase text-[#fbc710] font-semibold">
                     {activeVideo.subtitle}
                   </p>
 
-                  <h3 className="mt-3 text-2xl md:text-[30px] leading-tight font-semibold tracking-tight text-gray-950">
+                  <h3 className="mt-3 text-2xl md:text-[30px] leading-tight font-semibold tracking-tight text-white">
                     {activeVideo.title}
                   </h3>
 
-                  <div className="mt-5 flex items-center gap-2 text-sm text-gray-500">
+                  <div className="mt-5 flex items-center gap-2 text-sm text-white/45">
                     <Clock3 size={15} />
 
                     <span>{activeVideo.duration}</span>
@@ -180,7 +196,7 @@ export default function GetStarted() {
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-gray-800 text-sm font-medium bg-gray-100 border border-gray-200 hover:bg-gray-200 transition-all duration-300 cursor-pointer"
+                  className="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-black text-sm font-medium bg-white hover:bg-white/90 transition-all duration-300 cursor-pointer"
                 >
                   Watch Full Video
                   <ArrowRight size={16} />
@@ -199,7 +215,7 @@ export default function GetStarted() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
                 whileHover={{ y: -2 }}
-                className="group w-full rounded-[24px] border border-gray-200 bg-white text-left overflow-hidden transition-all duration-300 hover:border-gray-300 hover:shadow-[0_14px_40px_rgba(0,0,0,0.06)] cursor-default"
+                className="group w-full rounded-[24px] border border-white/10 bg-white/[0.03] backdrop-blur-xl text-left overflow-hidden transition-all duration-300 hover:border-white/15 hover:bg-white/[0.05] hover:shadow-[0_14px_40px_rgba(0,0,0,0.35)] cursor-default"
               >
                 <div className="flex gap-4 p-3">
                   {/* THUMBNAIL */}
@@ -210,7 +226,7 @@ export default function GetStarted() {
                       className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                     />
 
-                    <div className="absolute inset-0 bg-black/25" />
+                    <div className="absolute inset-0 bg-black/30" />
 
                     {/* play */}
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -231,23 +247,23 @@ export default function GetStarted() {
                   {/* TEXT */}
                   <div className="flex flex-col justify-between py-1 min-w-0 flex-1">
                     <div>
-                      <p className="text-[10px] uppercase tracking-[0.18em] text-gray-400">
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-white/35">
                         {video.subtitle}
                       </p>
 
-                      <h4 className="mt-2 text-sm md:text-[15px] leading-relaxed text-gray-700 group-hover:text-gray-950 transition-colors">
+                      <h4 className="mt-2 text-sm md:text-[15px] leading-relaxed text-white/70 group-hover:text-white transition-colors">
                         {video.title}
                       </h4>
                     </div>
 
                     <div className="flex items-center justify-between pt-4">
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs text-white/35">
                         Preview only
                       </span>
 
                       <ArrowRight
                         size={15}
-                        className="text-gray-300 transition-transform duration-300 group-hover:translate-x-1"
+                        className="text-white/25 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-white/60"
                       />
                     </div>
                   </div>
