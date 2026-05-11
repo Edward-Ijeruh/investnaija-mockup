@@ -69,7 +69,6 @@ export default function Testimonials() {
   const resume = () => {
     speedRef.current = 1;
 
-    // resume from CURRENT position (no reset = no jump)
     controls.start({
       x: "-50%",
       transition: {
@@ -82,17 +81,7 @@ export default function Testimonials() {
 
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-white">
-      {/* subtle grid */}
-      <div
-        className="absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, black 1px, transparent 1px), linear-gradient(to bottom, black 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
-      />
-
-      {/* HEADER */}
+      {/* Header */}
       <div className="max-w-3xl mx-auto text-center px-6 mb-16 md:mb-20">
         <motion.span className="text-sm text-gray-500 uppercase tracking-widest">
           Testimonials
@@ -112,11 +101,11 @@ export default function Testimonials() {
         </p>
       </div>
 
-      {/* fades */}
+      {/* Fades */}
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 md:w-40 bg-gradient-to-r from-white to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 md:w-40 bg-gradient-to-l from-white to-transparent" />
 
-      {/* SCROLLER */}
+      {/* Scroller */}
       <div className="overflow-hidden">
         <motion.div
           animate={controls}
@@ -131,7 +120,7 @@ export default function Testimonials() {
               transition={{ duration: 0.25 }}
               className="group relative w-[320px] md:w-[420px] shrink-0 rounded-[28px] overflow-hidden border border-black/8 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] cursor-default"
             >
-              {/* hover glow */}
+              {/* Hover glow */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
                 style={{
@@ -139,7 +128,7 @@ export default function Testimonials() {
                 }}
               />
 
-              {/* content */}
+              {/* Content */}
               <div className="relative p-6 md:p-8 flex flex-col justify-between h-full min-h-[260px]">
                 <div>
                   <div

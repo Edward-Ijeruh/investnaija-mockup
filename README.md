@@ -1,40 +1,71 @@
 # InvestNaija Website (Mockup)
 
-A modern redesign mockup of the InvestNaija website focused on improving user experience, visual clarity, trust, and product positioning.
+A modern high-fidelity redesign concept for the InvestNaija website focused on clarity, trust, simplicity, and financial education.
 
 ## Overview
 
-This project is a UI/UX redesign concept for InvestNaija, a Nigerian investment and financial literacy platform.
+This project is a UI/UX redesign mockup for InvestNaija, a Nigerian investment and financial literacy platform by Chapel Hill Denham.
 
-The goal of this mockup is to:
+The redesign focuses on creating a cleaner, more modern fintech experience engineered to reduce the cognitive load often found in financial services platforms.
 
-- Improve visual hierarchy and readability
-- Strengthen brand trust and credibility
-- Simplify navigation across products (LearnIN, SaveIN, PlanIN, InvestIN)
-- Create a modern fintech look and feel
+The website currently includes redesigned sections for:
+
+- Home
+- About
+- LearnIN
+
+## Design Direction
+
+The design system is built around:
+
+- Minimal, premium fintech aesthetics
+- Clear visual hierarchy
+- Reduced interface clutter
+- Smooth motion and transitions
+- Trust-centered product presentation
+- Mobile-first responsiveness
+- High readability and accessibility
+
+## Core Product Areas
+
+- **InvestIN** - Investing products
+- **SaveIN** - Savings products
+- **PlanIN** - Financial planning
+- **LearnIN** - Financial education and literacy
 
 ## Tech Stack
 
 - React
 - TypeScript
 - Tailwind CSS
+- Framer Motion
+- Lucide React
 
-## Design Goals
+## Features Implemented
 
-- Clean fintech aesthetic
-- Strong typography (Inter)
-- Clear product segmentation
-- Mobile responsiveness
-- Trust-focused UI (security, regulation highlights)
+- Responsive layouts across mobile, tablet, and desktop
+- Animated hero sections
+- Modern CTA sections
+- Video showcase components
+- Article library system
+- Premium motion interactions
+- Gradient-based visual identity
+- Component-based architecture
 
 ## Project Structure
 
-```
-├─ assets/
-├─ components/
-├─ App.tsx
-├─ index.css
-└─ main.tsx
+```bash
+src/
+├── assets/
+├── components/
+│   ├── about-page/
+│   ├── home-page/
+│   └── learnin-page/
+├── pages/
+├── App.tsx
+├── main.tsx
+└── index.css
+
 ```
 
 ## Responsiveness

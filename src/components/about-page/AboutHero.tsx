@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, ChevronDown } from "lucide-react";
 
-import heroOne from "../assets/home/hero-1.jpg";
-import heroTwo from "../assets/home/hero-2.png";
+import heroOne from "../../assets/about/about-hero-1.png";
+import heroTwo from "../../assets/about/about-hero-2.jpg";
 
-// Reusable Animated Text
+// Animations
 const AnimatedText = ({
   text,
   className,
@@ -56,21 +56,20 @@ const AnimatedText = ({
 
 const heroImages = [heroOne, heroTwo];
 
-export default function Hero() {
+export default function AboutHero() {
   const [currentImage, setCurrentImage] = useState(0);
 
-  // clean slow image transition
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
-    }, 4000);
+    }, 4500);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section className="relative w-full min-h-[100svh] overflow-hidden bg-black">
-      {/* Background Images */}
+      {/* Background images */}
       <AnimatePresence>
         <motion.img
           key={currentImage}
@@ -87,49 +86,62 @@ export default function Hero() {
         />
       </AnimatePresence>
 
-      {/* Premium overlays */}
-      <div className="absolute inset-0 bg-black/35" />
-
-      {/* subtle depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_45%)]" />
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-black/45" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[100svh] text-center px-4 sm:px-6">
         <div className="space-y-5 sm:space-y-6 max-w-xl sm:max-w-2xl">
           {/* Paragraph */}
           <AnimatedText
-            text="A disciplined, transparent approach to investing, designed for Nigerians"
+            text="Built to make investing simpler, more transparent, and more accessible for everyday Nigerians."
             className="hidden sm:block mt-20 text-gray-300 text-sm sm:text-base leading-relaxed"
             stagger={0.02}
           />
 
-          {/* Headline */}
+          {/* Heading */}
           <h1 className="mt-10 sm:mt-0 text-2xl sm:text-3xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
-            <AnimatedText text="Build " delay={1} stagger={0.05} />
+            <AnimatedText text="Building a better " delay={1} stagger={0.05} />
+
             <span className="bg-gradient-to-r from-[#e01e03] to-[#fbd90a] bg-clip-text text-transparent">
-              <AnimatedText text="wealth" delay={1.3} stagger={0.06} />
-            </span>{" "}
-            <AnimatedText text="with confidence." delay={1.8} stagger={0.045} />
+              <AnimatedText text="financial" delay={1.3} stagger={0.06} />
+            </span>
+
+            <br />
+
+            <span className="bg-gradient-to-r from-[#e01e03] to-[#fbd90a] bg-clip-text text-transparent">
+              <AnimatedText text="future" delay={1.5} stagger={0.06} />
+            </span>
+
+            <AnimatedText text=" for Nigerians." delay={1.8} stagger={0.045} />
           </h1>
 
           {/* Stats */}
           <div className="flex flex-wrap items-center justify-center gap-x-2 md:gap-x-4 gap-y-2 text-gray-300/80 text-xs sm:text-sm pt-2">
-            <AnimatedText text="₦250B+ managed" delay={2.8} stagger={0.02} />
-
-            <span className="opacity-30">•</span>
-
-            <AnimatedText text="240,000+ users" delay={3.0} stagger={0.02} />
+            <AnimatedText
+              text="Education-driven investing"
+              delay={2.8}
+              stagger={0.02}
+            />
 
             <span className="opacity-30">•</span>
 
             <AnimatedText
-              text="Secure & regulated"
+              text="Long-term wealth mindset"
+              delay={3.0}
+              stagger={0.02}
+            />
+
+            <span className="opacity-30">•</span>
+
+            <AnimatedText
+              text="Built for clarity & trust"
               delay={3.2}
               stagger={0.02}
             />
           </div>
 
-          {/* Button */}
+          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -140,11 +152,11 @@ export default function Hero() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl text-white text-sm sm:text-base font-medium
-              bg-white/10 backdrop-blur-xl border border-white/15
-              hover:bg-white/15 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.25)] cursor-pointer"
+        bg-white/10 backdrop-blur-xl border border-white/15
+        hover:bg-white/15 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.25)] cursor-pointer"
             >
               <Download size={18} />
-              Get Started
+              Get started
             </motion.button>
           </motion.div>
         </div>

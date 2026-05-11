@@ -41,15 +41,15 @@ export default function FAQSection() {
   return (
     <section className="relative pt-28 pb-28 bg-white overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-start">
-        {/* LEFT SIDE */}
+        {/* Left side */}
         <div className="md:sticky md:top-14 space-y-10 pr-6">
-          {/* label */}
+          {/* Title */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/[0.03] border border-black/10 text-xs tracking-[0.2em] uppercase text-black/55">
             <HelpCircle size={14} />
             Knowledge Base
           </div>
 
-          {/* headline */}
+          {/* Headline */}
           <div className="space-y-4">
             <h2 className="text-3xl md:text-5xl font-semibold leading-tight tracking-tight text-[#050505]">
               Clear answers for
@@ -63,7 +63,7 @@ export default function FAQSection() {
             </p>
           </div>
 
-          {/* structured key points */}
+          {/* Key points */}
           <div className="space-y-4 border-l border-black/10 pl-5">
             {[
               "Transparent investment structure",
@@ -81,14 +81,14 @@ export default function FAQSection() {
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* Right side */}
         <div className="space-y-1">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
               <div key={index} className="border-b border-black/10">
-                {/* QUESTION */}
+                {/* Question */}
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full flex items-center justify-between py-6 text-left group cursor-pointer"
@@ -103,7 +103,7 @@ export default function FAQSection() {
                     {faq.question}
                   </span>
 
-                  {/* PLUS / MINUS */}
+                  {/* Plus/Minus */}
                   <div className="ml-6 flex items-center justify-center w-8 h-8 rounded-md border border-black/10 bg-black/[0.02]">
                     <motion.div
                       initial={false}
@@ -116,7 +116,7 @@ export default function FAQSection() {
                   </div>
                 </button>
 
-                {/* ANSWER */}
+                {/* Answer */}
                 <AnimatePresence>
                   {isOpen && (
                     <motion.div

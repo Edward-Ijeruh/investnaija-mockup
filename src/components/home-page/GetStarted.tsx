@@ -2,12 +2,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play, ArrowRight, Volume2, Clock3 } from "lucide-react";
 
-import InvestNaijaVideo from "../assets/home/InvestNaija-Video.mp4";
+import InvestNaijaVideo from "../../assets/home/InvestNaija-Video.mp4";
 
-import videoTwo from "../assets/home/video2.png";
-import videoThree from "../assets/home/video3.png";
-import videoFour from "../assets/home/video4.png";
-import videoFive from "../assets/home/video5.png";
+import videoTwo from "../../assets/home/video2.png";
+import videoThree from "../../assets/home/video3.png";
+import videoFour from "../../assets/home/video4.png";
+import videoFive from "../../assets/home/video5.png";
 
 const initialVideos = [
   {
@@ -61,15 +61,8 @@ export default function GetStarted() {
 
   return (
     <section className="relative py-24 md:py-32 bg-black overflow-hidden">
-      {/* ambient glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-180px] left-[-120px] w-[420px] h-[420px] bg-[#d91b08]/10 blur-[140px]" />
-
-        <div className="absolute bottom-[-200px] right-[-120px] w-[420px] h-[420px] bg-[#0b6e7a]/10 blur-[140px]" />
-      </div>
-
       <div className="relative max-w-7xl mx-auto px-4 md:px-6">
-        {/* TOP CONTENT */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -77,7 +70,6 @@ export default function GetStarted() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center px-2 md:px-6 mb-16 md:mb-20"
         >
-          {/* eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +80,6 @@ export default function GetStarted() {
             Video Library
           </motion.div>
 
-          {/* heading */}
           <motion.h2
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -103,7 +94,6 @@ export default function GetStarted() {
             </span>
           </motion.h2>
 
-          {/* paragraph */}
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -117,9 +107,9 @@ export default function GetStarted() {
           </motion.p>
         </motion.div>
 
-        {/* VIDEO SECTION */}
+        {/* Video section */}
         <div className="mt-14 grid grid-cols-1 xl:grid-cols-[1.65fr_0.75fr] gap-5 items-start">
-          {/* MAIN VIDEO */}
+          {/* Main video */}
           <motion.div
             layout
             initial={{ opacity: 0, y: 20 }}
@@ -128,7 +118,7 @@ export default function GetStarted() {
             transition={{ duration: 0.45 }}
             className="group overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]"
           >
-            {/* VIDEO AREA */}
+            {/* Video area */}
             <div className="relative aspect-video overflow-hidden bg-black">
               {activeVideo.type === "video" ? (
                 <video
@@ -149,10 +139,7 @@ export default function GetStarted() {
                 />
               )}
 
-              {/* cinematic overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-
-              {/* top meta */}
+              {/* Top meta */}
               <div className="absolute top-5 left-5 flex items-center gap-2">
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
                   <Volume2 size={13} className="text-white/70" />
@@ -163,7 +150,7 @@ export default function GetStarted() {
                 </div>
               </div>
 
-              {/* play overlay */}
+              {/* Play overlay */}
               <motion.div
                 whileHover={{ scale: 1.06 }}
                 className="absolute inset-0 flex items-center justify-center pointer-events-none"
@@ -174,7 +161,7 @@ export default function GetStarted() {
               </motion.div>
             </div>
 
-            {/* CONTENT */}
+            {/* Content */}
             <div className="p-6 md:p-7">
               <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
                 <div className="max-w-xl">
@@ -205,7 +192,7 @@ export default function GetStarted() {
             </div>
           </motion.div>
 
-          {/* SIDE VIDEOS */}
+          {/* Side videos */}
           <div className="space-y-4">
             {sideVideos.map((video, index) => (
               <motion.div
@@ -218,7 +205,7 @@ export default function GetStarted() {
                 className="group w-full rounded-[24px] border border-white/10 bg-white/[0.03] backdrop-blur-xl text-left overflow-hidden transition-all duration-300 hover:border-white/15 hover:bg-white/[0.05] hover:shadow-[0_14px_40px_rgba(0,0,0,0.35)] cursor-default"
               >
                 <div className="flex gap-4 p-3">
-                  {/* THUMBNAIL */}
+                  {/* Thumbnail */}
                   <div className="relative w-[145px] md:w-[160px] shrink-0 overflow-hidden rounded-2xl bg-black">
                     <img
                       src={video.thumbnail}
@@ -228,7 +215,7 @@ export default function GetStarted() {
 
                     <div className="absolute inset-0 bg-black/30" />
 
-                    {/* play */}
+                    {/* Play */}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="flex items-center justify-center w-11 h-11 rounded-full bg-white/15 backdrop-blur-xl border border-white/20">
                         <Play
@@ -238,13 +225,12 @@ export default function GetStarted() {
                       </div>
                     </div>
 
-                    {/* duration */}
                     <div className="absolute bottom-2 right-2 px-2 py-1 rounded-lg bg-black/75 backdrop-blur-md text-[10px] text-white/85">
                       {video.duration}
                     </div>
                   </div>
 
-                  {/* TEXT */}
+                  {/* Text */}
                   <div className="flex flex-col justify-between py-1 min-w-0 flex-1">
                     <div>
                       <p className="text-[10px] uppercase tracking-[0.18em] text-white/35">

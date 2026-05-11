@@ -27,7 +27,7 @@ export default function CountUp({
 
     // Animate every time it comes into view
     if (isInView) {
-      count.set(0); // reset before animating
+      count.set(0);
       const controls = animate(count, value, {
         duration,
         ease: "easeOut",

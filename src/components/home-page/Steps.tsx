@@ -9,10 +9,10 @@ import {
   Workflow,
 } from "lucide-react";
 
-import learnIn from "../assets/home/learn-in.jpg";
-import planIn from "../assets/home/plan-in.jpg";
-import saveIn from "../assets/home/save-in.jpg";
-import investIn from "../assets/home/invest-in.jpg";
+import learnIn from "../../assets/home/learn-in.jpg";
+import planIn from "../../assets/home/plan-in.jpg";
+import saveIn from "../../assets/home/save-in.jpg";
+import investIn from "../../assets/home/invest-in.jpg";
 
 const steps = [
   {
@@ -55,7 +55,7 @@ export default function Steps() {
   return (
     <section className="bg-black py-28 text-white">
       <div className="max-w-7xl mx-auto px-6">
-        {/* HEADER */}
+        {/* Header */}
         <div className="max-w-2xl mb-16">
           <div className="inline-flex mb-10 items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs tracking-[0.2em] uppercase text-white/60">
             <Workflow size={14} />
@@ -67,7 +67,7 @@ export default function Steps() {
           </h2>
         </div>
 
-        {/* DESKTOP */}
+        {/* Desktop */}
         <div className="hidden md:flex gap-4 h-[480px]">
           {steps.map((step, i) => {
             const Icon = step.icon;
@@ -81,7 +81,7 @@ export default function Steps() {
                 transition={{ duration: 0.5 }}
                 className="relative rounded-2xl overflow-hidden cursor-pointer"
               >
-                {/* IMAGE */}
+                {/* Image */}
                 <img
                   src={step.image}
                   alt=""
@@ -90,7 +90,7 @@ export default function Steps() {
                   }`}
                 />
 
-                {/* COLOR TINT */}
+                {/* Colour tint*/}
                 <div
                   className="absolute inset-0"
                   style={{
@@ -98,10 +98,10 @@ export default function Steps() {
                   }}
                 />
 
-                {/* DARK OVERLAY */}
+                {/* Overlay */}
                 <div className="absolute inset-0 bg-black/40" />
 
-                {/* CONTENT */}
+                {/* Content */}
                 <div className="relative h-full p-6 flex flex-col justify-between">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md bg-black/30 border border-white/10 w-fit">
                     <Icon size={20} style={{ color: step.color }} />
@@ -132,7 +132,7 @@ export default function Steps() {
                   </div>
                 </div>
 
-                {/* ACTIVE INDICATOR */}
+                {/* Active indicator */}
                 <motion.div
                   layoutId="activeLine"
                   className="absolute bottom-0 left-0 h-[3px] w-full"
@@ -144,7 +144,7 @@ export default function Steps() {
           })}
         </div>
 
-        {/* MOBILE — SAME DESIGN, SCROLLABLE */}
+        {/* Mobile */}
         <div className="md:hidden flex flex-col gap-3 h-[700px]">
           {steps.map((step, i) => {
             const Icon = step.icon;
@@ -158,7 +158,7 @@ export default function Steps() {
                 transition={{ duration: 0.5 }}
                 className="relative rounded-2xl overflow-hidden cursor-pointer"
               >
-                {/* IMAGE */}
+                {/* Image */}
                 <img
                   src={step.image}
                   alt=""
@@ -167,7 +167,7 @@ export default function Steps() {
                   }`}
                 />
 
-                {/* TINT */}
+                {/* Colour tint */}
                 <div
                   className="absolute inset-0"
                   style={{
@@ -175,18 +175,16 @@ export default function Steps() {
                   }}
                 />
 
-                {/* DARK */}
+                {/* Overlay */}
                 <div className="absolute inset-0 bg-black/40" />
 
-                {/* CONTENT */}
+                {/* Content */}
                 <div className="relative h-full p-4 flex flex-col justify-between">
-                  {/* pill */}
                   <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full backdrop-blur-md bg-black/30 border border-white/10 w-fit">
                     <Icon size={18} style={{ color: step.color }} />
                     <span className="text-sm text-white/90">{step.title}</span>
                   </div>
 
-                  {/* bottom */}
                   <div>
                     <motion.div
                       animate={{ opacity: isActive ? 1 : 0.6 }}
@@ -211,7 +209,7 @@ export default function Steps() {
                   </div>
                 </div>
 
-                {/* ACTIVE LINE */}
+                {/* Active line */}
                 <motion.div
                   className="absolute bottom-0 left-0 h-[2px] w-full"
                   style={{ backgroundColor: step.color }}

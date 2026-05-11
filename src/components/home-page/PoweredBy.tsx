@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import CountUp from "./ui/CountUp";
+import CountUp from "../ui/CountUp";
 
 const stats = [
   {
@@ -24,7 +24,7 @@ export default function PoweredBySection() {
   return (
     <section className="bg-white py-16 md:py-20">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Header (reduced cognitive load) */}
+        {/* Header  */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ export default function PoweredBySection() {
           </h2>
         </motion.div>
 
-        {/* subtle divider */}
+        {/* Divider */}
         <div className="my-10 md:my-12 h-px bg-gray-100" />
 
         {/* Stats */}
