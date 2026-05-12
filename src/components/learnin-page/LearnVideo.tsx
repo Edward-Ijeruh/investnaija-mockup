@@ -76,7 +76,7 @@ export default function LearnVideo() {
           <h2 className="mt-6 text-3xl md:text-5xl font-semibold leading-tight tracking-tight text-[#050505]">
             Learn investing through
             <br />
-            <span className="bg-gradient-to-r from-[#d91b08] to-[#fbc710] bg-clip-text text-transparent">
+            <span className="bg-[#e55356] bg-clip-text text-transparent">
               simple visual guidance.
             </span>
           </h2>

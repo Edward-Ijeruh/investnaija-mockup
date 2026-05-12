@@ -88,7 +88,7 @@ export default function Testimonials() {
         </motion.span>
 
         <motion.h2 className="mt-6 text-3xl md:text-5xl font-semibold leading-tight tracking-tight text-[#050505]">
-          <span className="bg-gradient-to-r from-[#e01e03] to-[#fbd90a] bg-clip-text text-transparent">
+          <span className="bg-[#e55356] bg-clip-text text-transparent">
             Financial clarity,{" "}
           </span>
           <br />

@@ -89,7 +89,7 @@ export default function GetStarted() {
           >
             Learn investing through
             <br />
-            <span className="bg-gradient-to-r from-[#d91b08] via-[#e25257] to-[#fbc710] bg-clip-text text-transparent">
+            <span className="bg-[#0b6e7a] bg-clip-text text-transparent">
               clear visual guidance.
             </span>
           </motion.h2>

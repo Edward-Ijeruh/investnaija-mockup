@@ -24,7 +24,7 @@ export default function CTASection() {
             {/* Headline */}
             <h2 className="mt-7 text-3xl md:text-5xl font-semibold leading-tight tracking-tight text-[#050505]">
               Wouldn’t you rather keep your money{" "}
-              <span className="bg-gradient-to-r from-[#d91b08] to-[#fbc710] bg-clip-text text-transparent">
+              <span className="bg-[#e55356] bg-clip-text text-transparent">
                 safe and growing
               </span>{" "}
               with us?

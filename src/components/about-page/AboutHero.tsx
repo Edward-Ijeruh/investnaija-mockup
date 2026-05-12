@@ -103,13 +103,13 @@ export default function AboutHero() {
           <h1 className="mt-10 sm:mt-0 text-2xl sm:text-3xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
             <AnimatedText text="Building a better " delay={1} stagger={0.05} />
 
-            <span className="bg-gradient-to-r from-[#e01e03] to-[#fbd90a] bg-clip-text text-transparent">
+            <span className="bg-[#e55356] bg-clip-text text-transparent">
               <AnimatedText text="financial" delay={1.3} stagger={0.06} />
             </span>
 
             <br />
 
-            <span className="bg-gradient-to-r from-[#e01e03] to-[#fbd90a] bg-clip-text text-transparent">
+            <span className="bg-[#e55356] bg-clip-text text-transparent">
               <AnimatedText text="future" delay={1.5} stagger={0.06} />
             </span>
 

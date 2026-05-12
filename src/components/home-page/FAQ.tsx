@@ -54,7 +54,7 @@ export default function FAQSection() {
             <h2 className="text-3xl md:text-5xl font-semibold leading-tight tracking-tight text-[#050505]">
               Clear answers for
               <br />
-              <span className="text-[#0b6e7a]">confident decisions</span>
+              <span className="text-[#e55356]">confident decisions</span>
             </h2>
 
             <p className="text-black/55 text-sm md:text-base leading-relaxed max-w-md">
@@ -74,7 +74,7 @@ export default function FAQSection() {
                 key={i}
                 className="flex items-start gap-2 text-sm text-black/50"
               >
-                <span className="w-1.5 h-1.5 mt-2 rounded-full bg-[#0b6e7a]" />
+                <span className="w-1.5 h-1.5 mt-2 rounded-full bg-[#e55356]" />
                 {item}
               </div>
             ))}
@@ -96,7 +96,7 @@ export default function FAQSection() {
                   <span
                     className={`text-sm md:text-base transition-colors leading-relaxed ${
                       isOpen
-                        ? "text-[#0b6e7a]"
+                        ? "text-[#e55356]"
                         : "text-black/75 group-hover:text-black"
                     }`}
                   >
@@ -109,7 +109,7 @@ export default function FAQSection() {
                       initial={false}
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.2 }}
-                      className="text-[#0b6e7a]"
+                      className="text-[#e55356]"
                     >
                       {isOpen ? <Minus size={16} /> : <Plus size={16} />}
                     </motion.div>

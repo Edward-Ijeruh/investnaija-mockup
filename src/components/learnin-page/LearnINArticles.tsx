@@ -63,7 +63,7 @@ export default function LearnINArticles() {
 
           <h2 className="mt-6 text-3xl md:text-5xl font-semibold tracking-tight text-[#050505] leading-tight">
             Simple lessons for{" "}
-            <span className="bg-gradient-to-r from-[#d91b08] to-[#fbc710] bg-clip-text text-transparent">
+            <span className="bg-[#e55356] bg-clip-text text-transparent">
               smarter financial decisions
             </span>
           </h2>

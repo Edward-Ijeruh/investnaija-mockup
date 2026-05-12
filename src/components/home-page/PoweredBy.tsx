@@ -38,7 +38,7 @@ export default function PoweredBySection() {
 
           <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-gray-900 leading-snug">
             Built on{" "}
-            <span className="bg-gradient-to-r from-[#e01e03] to-[#fbd90a] bg-clip-text text-transparent">
+            <span className="bg-[#e55356] bg-clip-text text-transparent">
               proven{" "}
             </span>
             financial expertise.

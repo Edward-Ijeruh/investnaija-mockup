@@ -103,7 +103,7 @@ export default function Hero() {
           {/* Headline */}
           <h1 className="mt-10 sm:mt-0 text-2xl sm:text-3xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
             <AnimatedText text="Build " delay={1} stagger={0.05} />
-            <span className="bg-gradient-to-r from-[#e01e03] to-[#fbd90a] bg-clip-text text-transparent">
+            <span className="bg-[#e55356] bg-clip-text text-transparent">
               <AnimatedText text="wealth" delay={1.3} stagger={0.06} />
             </span>{" "}
             <AnimatedText text="with confidence." delay={1.8} stagger={0.045} />

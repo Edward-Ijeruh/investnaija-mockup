@@ -65,7 +65,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `transition-colors duration-300 ${
                     isActive
-                      ? "text-[#d41a0b] font-semibold"
+                      ? "text-[#e55356] font-semibold"
                       : scrolled
                         ? "text-gray-700 hover:text-[#d41a0b]"
                         : "text-white hover:text-white/80"
@@ -100,7 +100,7 @@ export default function Navbar() {
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 px-5 py-2 rounded-lg text-white font-semibold bg-gradient-to-r from-[#e01e03] to-[#fbd90a] hover:opacity-90 transition-all shadow-md cursor-pointer"
+              className="flex items-center gap-2 px-5 py-2 rounded-lg text-white font-semibold bg-black hover:opacity-90 transition-all shadow-md cursor-pointer"
             >
               Sign Up
               <UserPlus size={18} />
@@ -146,7 +146,7 @@ export default function Navbar() {
                   Login
                 </button>
 
-                <button className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-[#e01e03] to-[#fbd90a] text-white font-medium shadow-md hover:opacity-90 transition">
+                <button className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-black text-white font-medium shadow-md hover:opacity-90 transition">
                   Sign Up
                   <UserPlus size={18} />
                 </button>

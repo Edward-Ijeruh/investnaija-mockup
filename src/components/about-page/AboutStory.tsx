@@ -96,7 +96,7 @@ export default function AboutStory() {
             <h2 className="mt-7 text-3xl md:text-5xl font-semibold leading-[1.05] tracking-tight text-[#050505]">
               The InvestNaija
               <br />
-              <span className="bg-gradient-to-r from-[#d91b08] to-[#fbc710] bg-clip-text text-transparent">
+              <span className="bg-[#e55356] bg-clip-text text-transparent">
                 journey.
               </span>
             </h2>

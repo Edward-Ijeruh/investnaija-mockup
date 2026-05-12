@@ -40,7 +40,7 @@ export default function LearnSection() {
             {/* Headline */}
             <h2 className="mt-7 text-3xl md:text-5xl font-semibold leading-tight tracking-tight text-[#050505]">
               Learn.
-              <span className="bg-gradient-to-r from-[#d91b08] to-[#fbc710] bg-clip-text text-transparent">
+              <span className="bg-[#e55356] bg-clip-text text-transparent">
                 Earn.
               </span>{" "}
               Grow.
