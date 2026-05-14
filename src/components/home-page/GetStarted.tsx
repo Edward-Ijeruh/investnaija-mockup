@@ -60,7 +60,10 @@ export default function GetStarted() {
   const sideVideos = videos.slice(1);
 
   return (
-    <section className="relative py-24 md:py-32 bg-black overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-gray-200 overflow-hidden">
+      {/* subtle gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.7),transparent_45%)]" />
+
       <div className="relative max-w-7xl mx-auto px-4 md:px-6">
         {/* Header */}
         <motion.div
@@ -75,7 +78,7 @@ export default function GetStarted() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="text-[11px] md:text-sm text-gray-500 uppercase tracking-[0.24em]"
+            className="text-[11px] md:text-sm text-black/40 uppercase tracking-[0.24em]"
           >
             Video Library
           </motion.div>
@@ -85,13 +88,11 @@ export default function GetStarted() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="mt-7 text-3xl md:text-5xl font-semibold leading-[1.02] tracking-tight text-white"
+            className="mt-7 text-3xl md:text-5xl font-semibold leading-[1.02] tracking-tight text-[#050505]"
           >
             Learn investing through
             <br />
-            <span className="bg-[#0b6e7a] bg-clip-text text-transparent">
-              clear visual guidance.
-            </span>
+            <span className="text-[#e55356]">clear visual guidance.</span>
           </motion.h2>
 
           <motion.p
@@ -99,7 +100,7 @@ export default function GetStarted() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="mt-5 text-sm md:text-base leading-relaxed text-white/50 max-w-2xl mx-auto"
+            className="mt-5 text-sm md:text-base leading-relaxed text-black/60 max-w-2xl mx-auto"
           >
             Short, practical financial content designed to simplify complex
             decisions, reduce cognitive overload, and help Nigerians build
@@ -116,7 +117,7 @@ export default function GetStarted() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="group overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]"
+            className="group overflow-hidden rounded-[32px] border border-black/10 bg-white shadow-[0_20px_80px_rgba(0,0,0,0.08)]"
           >
             {/* Video area */}
             <div className="relative aspect-video overflow-hidden bg-black">
@@ -141,10 +142,10 @@ export default function GetStarted() {
 
               {/* Top meta */}
               <div className="absolute top-5 left-5 flex items-center gap-2">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
-                  <Volume2 size={13} className="text-white/70" />
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-xl border border-black/5">
+                  <Volume2 size={13} className="text-black/60" />
 
-                  <span className="text-[10px] uppercase tracking-[0.18em] text-white/75">
+                  <span className="text-[10px] uppercase tracking-[0.18em] text-black/60">
                     Now Playing
                   </span>
                 </div>
@@ -165,15 +166,15 @@ export default function GetStarted() {
             <div className="p-6 md:p-7">
               <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
                 <div className="max-w-xl">
-                  <p className="text-[11px] tracking-[0.2em] uppercase text-[#fbc710] font-semibold">
+                  <p className="text-[11px] tracking-[0.2em] uppercase text-[#d91b08] font-semibold">
                     {activeVideo.subtitle}
                   </p>
 
-                  <h3 className="mt-3 text-2xl md:text-[30px] leading-tight font-semibold tracking-tight text-white">
+                  <h3 className="mt-3 text-2xl md:text-[30px] leading-tight font-semibold tracking-tight text-[#050505]">
                     {activeVideo.title}
                   </h3>
 
-                  <div className="mt-5 flex items-center gap-2 text-sm text-white/45">
+                  <div className="mt-5 flex items-center gap-2 text-sm text-black/45">
                     <Clock3 size={15} />
 
                     <span>{activeVideo.duration}</span>
@@ -183,7 +184,7 @@ export default function GetStarted() {
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-black text-sm font-medium bg-white hover:bg-white/90 transition-all duration-300 cursor-pointer"
+                  className="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-white text-sm font-medium bg-[#050505] hover:bg-black/90 transition-all duration-300 cursor-pointer"
                 >
                   Watch Full Video
                   <ArrowRight size={16} />
@@ -202,7 +203,7 @@ export default function GetStarted() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
                 whileHover={{ y: -2 }}
-                className="group w-full rounded-[24px] border border-white/10 bg-white/[0.03] backdrop-blur-xl text-left overflow-hidden transition-all duration-300 hover:border-white/15 hover:bg-white/[0.05] hover:shadow-[0_14px_40px_rgba(0,0,0,0.35)] cursor-default"
+                className="group w-full rounded-[24px] border border-black/10 bg-white text-left overflow-hidden transition-all duration-300 hover:border-black/15 hover:shadow-[0_14px_40px_rgba(0,0,0,0.08)] cursor-default"
               >
                 <div className="flex gap-4 p-3">
                   {/* Thumbnail */}
@@ -233,23 +234,23 @@ export default function GetStarted() {
                   {/* Text */}
                   <div className="flex flex-col justify-between py-1 min-w-0 flex-1">
                     <div>
-                      <p className="text-[10px] uppercase tracking-[0.18em] text-white/35">
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-black/35">
                         {video.subtitle}
                       </p>
 
-                      <h4 className="mt-2 text-sm md:text-[15px] leading-relaxed text-white/70 group-hover:text-white transition-colors">
+                      <h4 className="mt-2 text-sm md:text-[15px] leading-relaxed text-black/70 group-hover:text-black transition-colors">
                         {video.title}
                       </h4>
                     </div>
 
                     <div className="flex items-center justify-between pt-4">
-                      <span className="text-xs text-white/35">
+                      <span className="text-xs text-black/35">
                         Preview only
                       </span>
 
                       <ArrowRight
                         size={15}
-                        className="text-white/25 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-white/60"
+                        className="text-black/25 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-black/60"
                       />
                     </div>
                   </div>

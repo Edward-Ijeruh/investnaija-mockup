@@ -54,14 +54,15 @@ export default function Steps() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-black py-28 text-white">
+    <section className="bg-gray-200 py-28 text-[#050505]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="max-w-2xl mb-16">
-          <div className="inline-flex mb-10 items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs tracking-[0.2em] uppercase text-white/60">
+          <div className="inline-flex mb-10 items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-black/10 text-xs tracking-[0.2em] uppercase text-black/50 shadow-sm">
             <Workflow size={14} />
             Process
           </div>
+
           <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
             A structured approach to building{" "}
             <span style={{ color: steps[active].color }}>wealth</span>
@@ -80,7 +81,7 @@ export default function Steps() {
                 onMouseEnter={() => setActive(i)}
                 animate={{ flex: isActive ? 4 : 1 }}
                 transition={{ duration: 0.5 }}
-                className="relative rounded-2xl overflow-hidden cursor-pointer"
+                className="relative rounded-2xl overflow-hidden cursor-pointer shadow-[0_18px_60px_rgba(0,0,0,0.08)]"
               >
                 {/* Image */}
                 <img
@@ -91,7 +92,7 @@ export default function Steps() {
                   }`}
                 />
 
-                {/* Colour tint*/}
+                {/* Colour tint */}
                 <div
                   className="absolute inset-0"
                   style={{
@@ -100,12 +101,13 @@ export default function Steps() {
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute inset-0 bg-black/35" />
 
                 {/* Content */}
-                <div className="relative h-full p-6 flex flex-col justify-between">
+                <div className="relative h-full p-6 flex flex-col justify-between text-white">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md bg-black/30 border border-white/10 w-fit">
                     <Icon size={20} style={{ color: step.color }} />
+
                     <span className="text-md tracking-wide text-white/90">
                       {step.title}
                     </span>
@@ -157,7 +159,7 @@ export default function Steps() {
                 onClick={() => setActive(i)}
                 animate={{ flex: isActive ? 4 : 1.5 }}
                 transition={{ duration: 0.5 }}
-                className="relative rounded-2xl overflow-hidden cursor-pointer"
+                className="relative rounded-2xl overflow-hidden cursor-pointer shadow-[0_14px_45px_rgba(0,0,0,0.08)]"
               >
                 {/* Image */}
                 <img
@@ -177,12 +179,13 @@ export default function Steps() {
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute inset-0 bg-black/35" />
 
                 {/* Content */}
-                <div className="relative h-full p-4 flex flex-col justify-between">
+                <div className="relative h-full p-4 flex flex-col justify-between text-white">
                   <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full backdrop-blur-md bg-black/30 border border-white/10 w-fit">
                     <Icon size={18} style={{ color: step.color }} />
+
                     <span className="text-sm text-white/90">{step.title}</span>
                   </div>
 
