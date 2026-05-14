@@ -24,14 +24,6 @@ const steps = [
     image: learnIn,
   },
   {
-    title: "SaveIN",
-    heading: "Build disciplined habits.",
-    description: "Automate savings effortlessly.",
-    icon: PiggyBank,
-    color: "#e25257",
-    image: saveIn,
-  },
-  {
     title: "PlanIN",
     heading: "Plan for your future.",
     description: "Align money decisions with long-term goals.",
@@ -39,6 +31,15 @@ const steps = [
     color: "#d91b08",
     image: planIn,
   },
+  {
+    title: "SaveIN",
+    heading: "Build disciplined habits.",
+    description: "Automate savings effortlessly.",
+    icon: PiggyBank,
+    color: "#e25257",
+    image: saveIn,
+  },
+
   {
     title: "InvestIN",
     heading: "Invest with confidence.",

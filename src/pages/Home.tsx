@@ -4,6 +4,7 @@ import Steps from "../components/home-page/Steps";
 import Testimonials from "../components/home-page/Testimonials";
 import GetStarted from "../components/home-page/GetStarted";
 import FAQSection from "../components/home-page/FAQ";
+import Newsletter from "../components/common/Newsletter";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Testimonials />
       <GetStarted />
       <FAQSection />
+      <Newsletter />
     </>
   );
 }

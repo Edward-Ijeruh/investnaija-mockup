@@ -1,9 +1,17 @@
+import PlanINHero from "../components/planin-page/PlanINHero";
+import PlanINLearn from "../components/planin-page/PlanINLearn";
+import PlanINCalculator from "../components/planin-page/PlanINCalculator";
+import PlanINSafe from "../components/planin-page/PlanINSafe";
+import Newsletter from "../components/common/Newsletter";
+
 export default function PlanIN() {
   return (
-    <section className="min-h-screen pt-40 px-6">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-5xl font-semibold">PlanIN</h1>
-      </div>
-    </section>
+    <>
+      <PlanINHero />
+      <PlanINLearn />
+      <PlanINCalculator />
+      <PlanINSafe />
+      <Newsletter />
+    </>
   );
 }
