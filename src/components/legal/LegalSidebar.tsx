@@ -11,7 +11,7 @@ export default function LegalSidebar() {
   const location = useLocation();
 
   return (
-    <div className="hidden md:block fixed top-38 right-4 md:right-28 z-40">
+    <div className="hidden md:block fixed top-38 right-4 md:right-30 z-40">
       <div className="w-64 overflow-hidden rounded-3xl border border-gray-200/80 bg-white/90 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
         {/* Header */}
         <div className="border-b border-gray-100 px-5 py-4">
