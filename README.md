@@ -8,11 +8,7 @@ This project is a UI/UX redesign mockup for InvestNaija, a Nigerian investment a
 
 The redesign focuses on creating a cleaner, more modern fintech experience engineered to reduce the cognitive load often found in financial services platforms.
 
-The website currently includes redesigned sections for:
-
-- Home
-- About
-- LearnIN
+The website currently includes redesigned sections for every page included in the main website.
 
 ## Design Direction
 
@@ -39,7 +35,8 @@ The design system is built around:
 - TypeScript
 - Tailwind CSS
 - Framer Motion
-- Lucide React
+- React Icons
+- Zoho Campaigns
 
 ## Features Implemented
 
@@ -58,13 +55,12 @@ The design system is built around:
 src/
 ├── assets/
 ├── components/
-│   ├── about-page/
-│   ├── home-page/
-│   └── learnin-page/
+├── data/
+├── layouts/
 ├── pages/
 ├── App.tsx
-├── main.tsx
-└── index.css
+├── index.css
+└── main.tsx
 
 ```
 

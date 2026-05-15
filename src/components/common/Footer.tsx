@@ -1,10 +1,6 @@
-import {
-  Twitter,
-  Instagram,
-  Linkedin,
-  Facebook,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube } from "react-icons/fa";
+import { SiThreads, SiX } from "react-icons/si";
 
 import { motion } from "framer-motion";
 
@@ -13,10 +9,10 @@ import logo from "../../assets/common/logowhite.svg";
 const footerLinks = {
   Company: [
     { label: "About", href: "/about" },
-    { label: "FAQs", href: "/faqs" },
-
     { label: "Privacy Policy", href: "/legal/privacy-policy" },
     { label: "Terms of Use", href: "/legal/terms-of-use" },
+    { label: "Risk Disclosure", href: "/legal/risk-disclosure" },
+    { label: "AML Policy", href: "/legal/aml-policy" },
   ],
   Products: [
     { label: "LearnIN", href: "/learnin" },
@@ -27,23 +23,24 @@ const footerLinks = {
 };
 
 const socials = [
-  { icon: Twitter, href: "https://twitter.com" },
-  { icon: Instagram, href: "https://instagram.com" },
-  { icon: Linkedin, href: "https://linkedin.com" },
-  { icon: Facebook, href: "https://facebook.com" },
+  { icon: SiX, href: "https://twitter.com/investnaija" },
+  { icon: FaInstagram, href: "https://www.instagram.com/investnaija/" },
+  { icon: FaLinkedin, href: "https://www.linkedin.com/showcase/investnaija/" },
+  { icon: FaFacebook, href: "https://www.facebook.com/in.investnaija" },
+  { icon: FaYoutube, href: "https://www.youtube.com/@investnaija" },
+  { icon: SiThreads, href: "https://www.threads.com/@investnaija" },
 ];
 
 export default function Footer() {
   return (
     <footer className="relative bg-black text-white overflow-hidden">
-      {/* subtle top divider */}
+      {/* Top divider */}
       <div className="absolute top-0 inset-x-0 h-px bg-white/10" />
 
       <div className="max-w-7xl mx-auto px-6">
-        {/* MAIN */}
         <div className="py-16 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-14">
-            {/* LEFT */}
+            {/* Left side */}
             <div className="max-w-xl">
               <motion.img
                 initial={{ opacity: 0, y: 10 }}
@@ -81,7 +78,14 @@ export default function Footer() {
                 transition={{ delay: 0.14, duration: 0.4 }}
                 className="mt-7"
               >
-                <button className="group inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/[0.04] px-5 py-2.5 text-sm text-white hover:bg-white/[0.08] transition-all duration-300 cursor-pointer">
+                <motion.a
+                  href="https://app.investnaija.com/auth/signup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/[0.04] px-5 py-2.5 text-sm text-white hover:bg-white/[0.08] transition-all duration-300 cursor-pointer"
+                >
                   Start Investing
                   <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white text-black">
                     <ArrowRight
@@ -89,13 +93,59 @@ export default function Footer() {
                       className="transition-transform duration-300 group-hover:translate-x-0.5"
                     />
                   </div>
-                </button>
+                </motion.a>
               </motion.div>
+
+              {/* App downloads */}
+              <div className="mt-6">
+                <p className="text-[11px] uppercase tracking-wider text-white/40 mb-3">
+                  Get the app
+                </p>
+
+                <div className="flex flex-row flex-nowrap items-center gap-2">
+                  {/* iOS */}
+                  <a
+                    href="https://apps.apple.com/ng/app/investnaija/id1579193940"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl bg-black/40 border border-white/30 backdrop-blur-xl hover:bg-black/60 transition shrink-0"
+                  >
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                      className="w-4 h-4 invert"
+                      alt="iOS"
+                    />
+
+                    <div className="text-left leading-tight">
+                      <p className="text-[9px] sm:text-[10px] text-white/60">
+                        Download on the
+                      </p>
+                      <p className="text-xs sm:text-sm text-white font-medium">
+                        App Store
+                      </p>
+                    </div>
+                  </a>
+
+                  {/* Android */}
+                  <a
+                    href="https://play.google.com/store/search?q=investnaija&c=apps"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0"
+                  >
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                      alt="Get it on Google Play"
+                      className="h-11 w-auto opacity-90 hover:opacity-100 transition"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* RIGHT */}
+            {/* Right side */}
             <div className="flex flex-col justify-between lg:pl-10">
-              {/* links */}
+              {/* Links */}
               <div className="grid grid-cols-2 gap-10">
                 {Object.entries(footerLinks).map(([title, links]) => (
                   <div key={title}>
@@ -119,7 +169,7 @@ export default function Footer() {
                 ))}
               </div>
 
-              {/* socials */}
+              {/* Socials */}
               <div className="pt-10">
                 <div className="flex items-center gap-2.5">
                   {socials.map((item, idx) => {
@@ -148,7 +198,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* BOTTOM */}
+        {/* Bottom */}
         <div className="border-t border-white/20 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
           <p className="text-xs text-white/55 tracking-wide">
             © 2026 InvestNaija

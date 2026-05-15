@@ -145,9 +145,14 @@ export default function AboutHero() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 3.8, duration: 0.5 }}
-            className="flex justify-center pt-5 sm:pt-6"
+            transition={{
+              delay: 4.0,
+              duration: 0.6,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="flex flex-col items-center gap-5 pt-5 sm:pt-6"
           >
+            {/* Primary CTA */}
             <motion.a
               href="https://app.investnaija.com/auth/signup"
               target="_blank"
@@ -156,11 +161,62 @@ export default function AboutHero() {
               whileTap={{ scale: 0.97 }}
               className="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl text-white text-sm sm:text-base font-medium
     bg-white/10 backdrop-blur-xl border border-white/15
-    hover:bg-white/15 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.25)] cursor-pointer"
+    hover:bg-white/15 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
             >
               Get Started
               <ArrowRight size={18} />
             </motion.a>
+
+            {/* Divider */}
+            <div className="flex items-center gap-3 text-xs text-white/40">
+              <span className="h-px w-10 bg-white/20" />
+              Or download the app
+              <span className="h-px w-10 bg-white/20" />
+            </div>
+
+            {/* App Store Buttons */}
+            <div className="flex flex-row flex-nowrap items-center justify-center gap-2 sm:gap-3 w-full overflow-hidden">
+              {/* iOS */}
+              <motion.a
+                href="https://apps.apple.com/ng/app/investnaija/id1579193940"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl bg-black/40 border border-white/30 backdrop-blur-xl hover:bg-black/60 transition shrink-0"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                  className="w-4 h-4 invert"
+                  alt="iOS"
+                />
+
+                <div className="text-left leading-tight">
+                  <p className="text-[9px] sm:text-[10px] text-white/60">
+                    Download on the
+                  </p>
+                  <p className="text-xs sm:text-sm text-white font-medium">
+                    App Store
+                  </p>
+                </div>
+              </motion.a>
+
+              {/* Android */}
+              <motion.a
+                href="https://play.google.com/store/search?q=investnaija&c=apps"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="shrink-0 flex items-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                  alt="Get it on Google Play"
+                  className="h-9 sm:h-11 w-auto"
+                />
+              </motion.a>
+            </div>
           </motion.div>
         </div>
 
