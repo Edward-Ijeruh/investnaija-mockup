@@ -8,6 +8,7 @@ import {
   ArrowRight,
   Workflow,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import learnIn from "../../assets/home/learn-in.jpg";
 import planIn from "../../assets/home/plan-in.jpg";
@@ -22,6 +23,7 @@ const steps = [
     icon: GraduationCap,
     color: "#0b6e7a",
     image: learnIn,
+    path: "/learnin",
   },
   {
     title: "PlanIN",
@@ -30,6 +32,7 @@ const steps = [
     icon: Layers3,
     color: "#d91b08",
     image: planIn,
+    path: "/planin",
   },
   {
     title: "SaveIN",
@@ -38,8 +41,8 @@ const steps = [
     icon: PiggyBank,
     color: "#e25257",
     image: saveIn,
+    path: "/savein",
   },
-
   {
     title: "InvestIN",
     heading: "Invest with confidence.",
@@ -47,6 +50,7 @@ const steps = [
     icon: TrendingUp,
     color: "#fbc710",
     image: investIn,
+    path: "/investin",
   },
 ];
 
@@ -126,9 +130,13 @@ export default function Steps() {
                             {step.description}
                           </p>
 
-                          <div className="flex items-center gap-2 text-sm">
+                          <Link
+                            to={step.path}
+                            className="flex items-center gap-2 text-sm hover:underline transition"
+                            onClick={(e) => e.stopPropagation()}
+                          >
                             Explore <ArrowRight size={14} />
-                          </div>
+                          </Link>
                         </>
                       )}
                     </motion.div>
@@ -204,9 +212,13 @@ export default function Steps() {
                             {step.description}
                           </p>
 
-                          <div className="flex items-center gap-2 text-xs mt-2">
+                          <Link
+                            to={step.path}
+                            className="flex items-center gap-2 text-xs mt-2 transition"
+                            onClick={(e) => e.stopPropagation()}
+                          >
                             Explore <ArrowRight size={12} />
-                          </div>
+                          </Link>
                         </>
                       )}
                     </motion.div>

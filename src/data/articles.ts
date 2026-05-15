@@ -502,7 +502,7 @@ export const articles = [
 
       {
         type: "paragraph",
-        text: `There you have it — 7 simple steps to building a better understanding of money and creating healthier financial habits.`,
+        text: `There you have it - 7 simple steps to building a better understanding of money and creating healthier financial habits.`,
       },
 
       {

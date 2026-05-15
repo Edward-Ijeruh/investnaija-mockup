@@ -1,63 +1,97 @@
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Play, ArrowRight, Volume2, Clock3 } from "lucide-react";
 
-import InvestNaijaVideo from "../../assets/home/InvestNaija-Video.mp4";
-
-import videoTwo from "../../assets/home/video2.png";
-import videoThree from "../../assets/home/video3.png";
-import videoFour from "../../assets/home/video4.png";
-import videoFive from "../../assets/home/video5.png";
+import InvestNaijaVideo from "../../assets/home/video-1.mp4";
+import videoTwo from "../../assets/home/video-2.mp4";
+import videoThree from "../../assets/home/video-3.mp4";
+import videoFour from "../../assets/home/video-4.mp4";
+import videoFive from "../../assets/home/video-5.mp4";
 
 const initialVideos = [
   {
     id: 1,
     title: "Building wealth with clarity",
     subtitle: "InvestNaija Overview",
-    type: "video",
     src: InvestNaijaVideo,
     thumbnail: videoTwo,
-    duration: "2:14",
+    duration: "1:05",
   },
+
   {
     id: 2,
-    title: "How disciplined investing works",
+    title: "Secure you money and your future",
     subtitle: "Financial Education",
-    type: "image",
+    src: videoTwo,
     thumbnail: videoTwo,
-    duration: "4:08",
+    duration: "1:06",
   },
+
   {
     id: 3,
-    title: "Planning long-term financial goals",
-    subtitle: "PlanIN",
-    type: "image",
+    title: "Understand how your money works for you",
+    subtitle: "LearnIN",
+    src: videoThree,
     thumbnail: videoThree,
-    duration: "3:42",
+    duration: "0:56",
   },
+
   {
     id: 4,
-    title: "Understanding smarter savings",
+    title: "Understanding smarter financing",
     subtitle: "SaveIN",
-    type: "image",
+    src: videoFour,
     thumbnail: videoFour,
-    duration: "5:11",
+    duration: "1:06",
   },
+
   {
     id: 5,
     title: "Mastering consistent investing habits",
-    subtitle: "GrowIN",
-    type: "image",
+    subtitle: "PlanIN",
+    src: videoFive,
     thumbnail: videoFive,
-    duration: "6:02",
+    duration: "1:11",
   },
 ];
 
 export default function GetStarted() {
-  const [videos] = useState(initialVideos);
-
+  const [videos, setVideos] = useState(initialVideos);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const activeVideo = videos[0];
-  const sideVideos = videos.slice(1);
+  const sideVideos = useMemo(() => {
+    return videos.slice(1);
+  }, [videos]);
+
+  const playVideo = async () => {
+    if (!videoRef.current) return;
+
+    try {
+      await videoRef.current.play();
+      setIsPlaying(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const switchVideo = async (clickedVideo: (typeof initialVideos)[0]) => {
+    const remainingVideos = videos.filter((v) => v.id !== clickedVideo.id);
+
+    setVideos([
+      clickedVideo,
+      activeVideo,
+      ...remainingVideos.filter((v) => v.id !== activeVideo.id),
+    ]);
+
+    setIsPlaying(true);
+  };
+
+  useEffect(() => {
+    if (!videoRef.current || !isPlaying) return;
+
+    videoRef.current.play().catch(() => {});
+  }, [activeVideo, isPlaying]);
 
   return (
     <section className="relative py-24 md:py-32 bg-gray-200 overflow-hidden">
@@ -109,7 +143,10 @@ export default function GetStarted() {
         </motion.div>
 
         {/* Video section */}
-        <div className="mt-14 grid grid-cols-1 xl:grid-cols-[1.65fr_0.75fr] gap-5 items-start">
+        <motion.div
+          layout
+          className="mt-14 grid grid-cols-1 xl:grid-cols-[1.65fr_0.75fr] gap-5 items-start"
+        >
           {/* Main video */}
           <motion.div
             layout
@@ -121,45 +158,41 @@ export default function GetStarted() {
           >
             {/* Video area */}
             <div className="relative aspect-video overflow-hidden bg-black">
-              {activeVideo.type === "video" ? (
-                <video
-                  key={activeVideo.id}
-                  src={activeVideo.src}
-                  autoPlay
-                  loop
-                  muted
-                  controls
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <img
-                  src={activeVideo.thumbnail}
-                  alt={activeVideo.title}
-                  className="w-full h-full object-cover"
-                />
-              )}
+              <video
+                ref={videoRef}
+                key={activeVideo.id}
+                src={activeVideo.src}
+                poster={activeVideo.thumbnail}
+                controls={isPlaying}
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover"
+              />
 
               {/* Top meta */}
-              <div className="absolute top-5 left-5 flex items-center gap-2">
+              <div className="absolute top-5 left-5 flex items-center gap-2 z-20">
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-xl border border-black/5">
                   <Volume2 size={13} className="text-black/60" />
 
                   <span className="text-[10px] uppercase tracking-[0.18em] text-black/60">
-                    Now Playing
+                    {isPlaying ? "Now playing" : "Ready to play"}
                   </span>
                 </div>
               </div>
 
               {/* Play overlay */}
-              <motion.div
-                whileHover={{ scale: 1.06 }}
-                className="absolute inset-0 flex items-center justify-center pointer-events-none"
-              >
-                <div className="flex items-center justify-center w-18 h-18 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl">
-                  <Play size={26} className="text-white fill-white ml-1" />
-                </div>
-              </motion.div>
+              {!isPlaying && (
+                <motion.button
+                  whileHover={{ scale: 1.06 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={playVideo}
+                  className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 cursor-pointer"
+                >
+                  <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl">
+                    <Play size={28} className="text-white fill-white ml-1" />
+                  </div>
+                </motion.button>
+              )}
             </div>
 
             {/* Content */}
@@ -182,6 +215,7 @@ export default function GetStarted() {
                 </div>
 
                 <motion.button
+                  onClick={playVideo}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   className="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-white text-sm font-medium bg-[#050505] hover:bg-black/90 transition-all duration-300 cursor-pointer"
@@ -194,23 +228,33 @@ export default function GetStarted() {
           </motion.div>
 
           {/* Side videos */}
-          <div className="space-y-4">
+          <motion.div layout className="space-y-4">
             {sideVideos.map((video, index) => (
               <motion.div
+                layout
                 key={video.id}
                 initial={{ opacity: 0, x: 10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
+                transition={{
+                  delay: index * 0.08,
+                  layout: {
+                    duration: 0.45,
+                    ease: [0.22, 1, 0.36, 1],
+                  },
+                }}
                 whileHover={{ y: -2 }}
-                className="group w-full rounded-[24px] border border-black/10 bg-white text-left overflow-hidden transition-all duration-300 hover:border-black/15 hover:shadow-[0_14px_40px_rgba(0,0,0,0.08)] cursor-default"
+                onClick={() => switchVideo(video)}
+                className="group w-full rounded-[24px] border border-black/10 bg-white text-left overflow-hidden transition-all duration-300 hover:border-black/15 hover:shadow-[0_14px_40px_rgba(0,0,0,0.08)] cursor-pointer"
               >
                 <div className="flex gap-4 p-3">
                   {/* Thumbnail */}
                   <div className="relative w-[145px] md:w-[160px] shrink-0 overflow-hidden rounded-2xl bg-black">
-                    <img
-                      src={video.thumbnail}
-                      alt={video.title}
+                    <video
+                      src={video.src}
+                      muted
+                      playsInline
+                      preload="metadata"
                       className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                     />
 
@@ -244,9 +288,7 @@ export default function GetStarted() {
                     </div>
 
                     <div className="flex items-center justify-between pt-4">
-                      <span className="text-xs text-black/35">
-                        Preview only
-                      </span>
+                      <span className="text-xs text-black/35">Watch video</span>
 
                       <ArrowRight
                         size={15}
@@ -257,8 +299,8 @@ export default function GetStarted() {
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

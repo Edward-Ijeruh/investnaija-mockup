@@ -3,76 +3,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-
-import art1 from "../../assets/learnin/art-1.webp";
-import art2 from "../../assets/learnin/art-2.webp";
-import art3 from "../../assets/learnin/art-3.webp";
-import art4 from "../../assets/learnin/art-4.webp";
-import art5 from "../../assets/learnin/art-5.webp";
-import art6 from "../../assets/learnin/art-6.webp";
-
-const articles = [
-  {
-    id: "why-do-i-need-savings",
-    title: "Why Do I Need Savings?",
-    tag: "Savings",
-    image: art1,
-    date: "May 14, 2026",
-    excerpt:
-      "Why emergency funds matter and how saving consistently protects your financial future.",
-  },
-  {
-    id: "investing-like-our-heroes",
-    title: "Investing Like Our Heroes Past",
-    tag: "Investing",
-    image: art2,
-    date: "May 11, 2026",
-    excerpt:
-      "What MKO Abiola’s legacy teaches us about wealth, investing, and financial empowerment.",
-  },
-  {
-    id: "understanding-money",
-    title: "Understanding How Money Works is Simpler than You Think",
-    tag: "Financial Literacy",
-    image: art3,
-    date: "May 8, 2026",
-    excerpt:
-      "7 practical ideas that help you understand money, budgeting, saving, and investing better.",
-  },
-  {
-    id: "compound-growth",
-    title: "How Compound Growth Builds Wealth Over Time",
-    tag: "Wealth Building",
-    image: art4,
-    date: "May 4, 2026",
-    excerpt:
-      "Learn why consistency and time remain the strongest drivers of long-term wealth creation.",
-  },
-  {
-    id: "financial-discipline",
-    title: "Financial Discipline: The Real Wealth Secret",
-    tag: "Mindset",
-    image: art5,
-    date: "April 29, 2026",
-    excerpt:
-      "Smart financial habits and disciplined decision-making create sustainable wealth.",
-  },
-  {
-    id: "market-basics",
-    title: "Market Basics Every Beginner Should Understand",
-    tag: "Markets",
-    image: art6,
-    date: "April 20, 2026",
-    excerpt:
-      "An easy introduction to how markets work and what beginner investors should know.",
-  },
-];
+import { articles } from "../../data/articles";
 
 export default function LearnINArticles() {
   return (
     <section
       id="learnin-articles"
-      className="relative py-28 bg-[#f5f5f5] overflow-hidden"
+      className="relative py-28 bg-[#f5f5f5] overflow-hidden scroll-mt-8"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Header */}

@@ -73,7 +73,10 @@ export default function PlanINCalculator() {
   };
 
   return (
-    <section className="relative py-20 md:py-28 bg-gray-200 overflow-hidden">
+    <section
+      id="planin-calculator"
+      className="relative py-20 md:py-28 bg-gray-200 overflow-hidden scroll-mt-8"
+    >
       <div className="relative max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 xl:grid-cols-[0.95fr_1.05fr] gap-12 items-center">
           {/* Left side */}

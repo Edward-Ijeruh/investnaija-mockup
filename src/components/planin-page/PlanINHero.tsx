@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
 import heroOne from "../../assets/planin/hero-1.png";
 import heroTwo from "../../assets/planin/hero-2.jpg";
@@ -141,6 +141,12 @@ export default function PlanINHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 3.8, duration: 0.5 }}
             className="flex justify-center pt-5 sm:pt-6"
+            onClick={() => {
+              const el = document.getElementById("planin-calculator");
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
           >
             <motion.button
               whileHover={{ scale: 1.03 }}
@@ -150,6 +156,7 @@ export default function PlanINHero() {
               hover:bg-white/15 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.25)] cursor-pointer"
             >
               Start Planning
+              <ArrowRight size={16} />
             </motion.button>
           </motion.div>
         </div>

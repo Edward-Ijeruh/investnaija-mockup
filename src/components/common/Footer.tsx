@@ -14,10 +14,10 @@ const footerLinks = {
   Company: [
     { label: "About", href: "/about" },
     { label: "FAQs", href: "/faqs" },
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
-  ],
 
+    { label: "Privacy Policy", href: "/legal/privacy-policy" },
+    { label: "Terms of Use", href: "/legal/terms-of-use" },
+  ],
   Products: [
     { label: "LearnIN", href: "/learnin" },
     { label: "SaveIN", href: "/savein" },

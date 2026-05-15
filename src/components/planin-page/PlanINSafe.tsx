@@ -52,14 +52,17 @@ export default function PlanINSafe() {
             </p>
 
             {/* CTA */}
-            <motion.button
+            <motion.a
+              href="https://app.investnaija.com/auth/signup"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.98 }}
-              className="mt-10 inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#050505] text-white text-sm font-medium shadow-[0_12px_45px_rgba(0,0,0,0.10)] hover:bg-black transition-all cursor-pointer"
+              className="mt-10 w-fit inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#050505] text-white text-sm font-medium shadow-[0_12px_45px_rgba(0,0,0,0.10)] hover:bg-black transition-all cursor-pointer"
             >
-              Get Started Now
+              Get Started
               <ArrowRight size={16} />
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
       </div>

@@ -124,14 +124,17 @@ export default function AboutStory() {
             </div>
 
             {/* CTA */}
-            <motion.button
+            <motion.a
+              href="https://app.investnaija.com/auth/signup"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="mt-10 flex items-center justify-center lg:justify-start gap-2 px-5 py-3 rounded-2xl text-sm font-medium text-white bg-[#050505] hover:bg-black transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.08)] cursor-pointer mx-auto lg:mx-0"
+              className="mt-10 w-fit flex items-center justify-center lg:justify-start gap-2 px-5 py-3 rounded-2xl text-sm font-medium text-white bg-[#050505] hover:bg-black transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.08)] cursor-pointer mx-auto lg:mx-0"
             >
               Get Started
               <ArrowRight size={16} />
-            </motion.button>
+            </motion.a>
           </motion.div>
 
           {/* Roadmap */}

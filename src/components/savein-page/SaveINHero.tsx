@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
 import heroOne from "../../assets/savein/hero-1.png";
 import heroTwo from "../../assets/savein/hero-2.jpg";
@@ -145,15 +145,19 @@ export default function SaveINHero() {
             transition={{ delay: 3.8, duration: 0.5 }}
             className="flex justify-center pt-5 sm:pt-6"
           >
-            <motion.button
+            <motion.a
+              href="https://app.investnaija.com/auth/signup"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl text-white text-sm sm:text-base font-medium
-              bg-white/10 backdrop-blur-xl border border-white/15
-              hover:bg-white/15 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.25)] cursor-pointer"
+    bg-white/10 backdrop-blur-xl border border-white/15
+    hover:bg-white/15 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.25)] cursor-pointer"
             >
               Start Saving
-            </motion.button>
+              <ArrowRight size={18} />
+            </motion.a>
           </motion.div>
         </div>
 

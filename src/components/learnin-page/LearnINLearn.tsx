@@ -58,6 +58,12 @@ export default function LearnSection() {
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                const el = document.getElementById("learnin-videos");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
               className="mt-10 inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#050505] text-white text-sm font-medium shadow-[0_12px_45px_rgba(0,0,0,0.10)] hover:bg-black transition-all cursor-pointer"
             >
               Start LearnIN
